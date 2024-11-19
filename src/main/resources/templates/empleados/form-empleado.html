@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Pequeña Jungla</title>
+    <script src="https://kit.fontawesome.com/482ad17f17.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="contenedor__header contenedor">
+            <div class="header__info">
+                <a href="perfil_usuario.html" id="logo_enlace"><img src="img/LOGOJUNGLAV2.png" alt="logo de empresa"
+                        class="header__logo"></a>
+                <h2 class="header__titulo">software de gestion veterinaria</h2>
+            </div>
+            <div class="contenedor__us">
+                <i class="fa-solid fa-user"></i>
+                <p>Usuario</p>
+            </div>
+            <nav class="header__nav">
+                <a href="lista-servicios.html" class="header__enlace"><i class="fa-solid fa-shield-dog"></i> Servicio</a>
+                <a href="lista-mascota.html" class="header__enlace"><i class="fa-solid fa-dog"></i> Mascota</a>
+                <a href="listaCliente.html" class="header__enlace"><i class="fa-solid fa-person"></i> Cliente</a>
+                <a href="lista-empleado.html" class="header__enlace red"><i class="fa-solid fa-user-nurse"></i> Empleado</a>
+                <a href="lista-usuario.html" class="header__enlace"><i class="fa-solid fa-user"></i> Usuario</a>
+                <a href="lista-inventario.html" class="header__enlace"><i class="fa-solid fa-box-archive"></i> Inventario</a>
+                <a href="lista-insumos.html" class="header__enlace"><i class="fa-solid fa-bottle-water"></i> Insumo</a>
+                <a href="lista-vacunas.html" class="header__enlace"><i class="fa-solid fa-syringe"></i> Vacunas</a>
+                <a href="lista-diagnosticos.html" class="header__enlace"><i class="fa-solid fa-stethoscope"></i> Diagnosticos</a>
+                <a href="lista-tratamientos.html" class="header__enlace"><i class="fa-solid fa-tablets"></i> Tratamientos</a>
+                <a href="lista-alergias.html" class="header__enlace"><i class="fa-solid fa-box-tissue"></i> Alergias</a>
+                <a href="lista-cirugias.html" class="header__enlace"><i class="fa-solid fa-mask-face"></i> Cirugias</a>
+                <a href="historial-vacunas.html" class="header__enlace"><i class="fa-solid fa-sheet-plastic"></i> Historial Clinico</a>
+                <a href="generar-contrato-medicina.html" class="header__enlace"><i class="fa-solid fa-file-contract"></i> Contrato </a>
+                <a href="programar-cita.html" class="header__enlace"><i class="fa-solid fa-thumbtack"></i>Programar Cita</a>
+                <a href="generar-comprobantepago.html" class="header__enlace"><i class="fa-solid fa-wallet"></i>Comprobante de Pago</a>
+                <a href="index.html" class="header__enlace"><i class="fa-solid fa-user-xmark"></i> Cerrar sesion</a>
+        </div>
+    </header>
+    <!-- Contenido Formulario Usuario -->
+    <div class="contenido-formulario">
+        <div class="contenedor contenedor-formulario">
+            <form action="lista-empleado.html" class="formulario">
+                <h3>Datos Generales</h3>
+                <!-- Fila 1 -->
+                <div class="f1">
+                    <!-- columna 1 -->
+                    <div class="col-1">
+                        <label>Nombre</label>
+                        <input type="text" required>
+                    </div>
+                    <!-- Columna 2 -->
+                    <div class="col-1">
+                        <label for="">Apellido Paterno</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <!-- Fin F1 -->
+                <!-- F2 -->
+                <div class="f1">
+                    <!-- columna 1 -->
+                    <div class="col-1">
+                        <label>Apellido Materno</label>
+                        <input type="text" required>
+                    </div>
+                    <!-- Columna 2 -->
+                    <div class="col-1">
+                        <label for="">Rol</label>
+                        <select name="" id="">
+                            <option value="">Veterinario</option>
+                            <option value="">Recepcionista</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="f1">
+                    <!-- Columna 1 -->
+                    <div class="col-1">
+                        <label for="">Cedula Profesional</label>
+                        <input type="number" required>
+                    </div>
+                    <!-- Columna 2 -->
+                    <div class="col-1">
+                        <label for="">Status</label>
+                        <select name="" id="">
+                            <option value="">Activo</option>
+                            <option value="">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="f1">
+                    <div class="col-1">
+                        <label for="">Fotografia</label>
+                        <input type="file" required>
+                    </div>
+                    <div class="col-1">
+                        <label for="">Fecha de Inicio</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+                <div class="f1">
+    
+                    <!-- Columna 1 -->
+                    <div class="col-1">
+                        <label for="">Telefono Movil</label>
+                        <input type="tel" required>
+                    </div>
+                    <!-- Columna 2 -->
+                    <div class="col-1">
+                        <label for="">Coctacto Emergencia</label>
+                        <input type="tel" required>
+                    </div>
+                </div>
+                <div class="f1">
+                    <!-- Columna 1 -->
+                    <div class="col-1">
+                        <label for="">Correo Electronico</label>
+                        <input type="email" required>
+                    </div>
+                </div>
+                <div class="f1">
+                    <!-- Columna 1 -->
+                    <div class="col-1">
+                        <input type="submit" value="Aceptar" id="aceptar">
+                        <input type="submit" value="Cancelar" id="cancelar">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Fin Formulario Usuario -->
+    <!-- Pie de pagina -->
+    <footer class="footer">
+        <div class="contenedor__footer contenedor">
+            <div class="footer__dir">
+                <h3 class="footer__dir__titulo">Direccion</h3>
+                <p class="footer__parrafo">
+                    Calle, Gral. Juan Manuel Torrea 40 bis, esquina José María, Iztapalapa, 09100 Parras de la Fuente,
+                    CDMX
+                </p>
+                <h3 class="footer__dir__titulo">Contacto</h3>
+                <p class="footer__parrafo centrar">
+                    <i class="fa-solid fa-phone"></i> 5529459032
+                </p>
+
+            </div>
+            <div class="footer__social">
+                <h3 class="footer__social__titulo">Redes Sociales</h3>
+                <div class="footer__social__enlaces">
+                    <a href="#" class="footer__enlace"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                    <a href="#" class="footer__enlace"><i class="fa-brands fa-whatsapp"></i>whatsapp</a>
+                    <a href="#" class="footer__enlace"><i class="fa-brands fa-instagram"></i>Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

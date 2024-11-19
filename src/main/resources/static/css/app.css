@@ -1,0 +1,673 @@
+@charset "UTF-8";
+/*El uso de los use es organizar ocmo se van a procesar los archivos sass a css el orden es importante*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+/*En este archivo van todas las variables que podemos utilizar para el proyecto para usarse se debe poner el alias del archivo revisalo en app.scss
+    Ejemplo si estamos ubicados en _header.scss  .header{  background-color:v.$negro;}
+*/
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/*
+Los mixins son funciones reutilizables de codigo
+un mixin se genera con la palabra clave @mixin nombre_mixin($parametro){
+    accion:$parametro;
+}
+
+Ejemplo de uso  desde layout/header.scss
+
+.header {
+  @include m.button-styles($primary-color);
+}
+
+Revisar el app.scss si tienes dudas del alias que utilizaras en este ejemplo el alias es m
+
+un mixin puede tener parametros para hacer mas funcional el mixin
+*/
+/*Este mixin se utiliza para centrar un div*/
+/*Este mixin es para agregar pequeñas transiciones*/
+/*Este Mixin es para generar un botono*/
+body {
+  font-size: 1rem;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.contenedor {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Sesión */
+.pagina-sesion {
+  background-color: #114d3b;
+  padding: 5rem 0;
+  min-height: calc(100vh - 300px);
+}
+
+.contenedor__sesion {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #fff;
+  border-radius: 1.2rem 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Formulario */
+.sesion__right {
+  width: 50%;
+  padding: 4rem;
+  background-color: #781b1b;
+}
+
+.sesion__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sesion__formulario__titulo {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+}
+
+.sesion__formulario__input {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 2rem;
+  border: none;
+  border-radius: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.sesion__formulario__btn {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sesion__formulario__btn:hover {
+  background-color: #114d3b;
+  color: #fff;
+}
+
+/* Imagen */
+.sesion__left {
+  width: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.left-capa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+
+.sesion__logo {
+  width: 80%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .contenedor__sesion {
+    flex-direction: column;
+  }
+  .sesion__right {
+    padding: 1rem;
+    width: 100%;
+  }
+  .sesion__left {
+    width: 0;
+    display: none;
+  }
+}
+.formulario h3 {
+  margin: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.f1 {
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+}
+@media only screen and (min-width: 1199.98px) {
+  .f1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20PX;
+  }
+}
+.f1 .col-1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto 50px auto;
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+}
+.f1 .col-1 input,
+.f1 .col-1 select {
+  padding: 0.7rem 1rem;
+}
+.f1 .col-1 #aceptar {
+  margin-bottom: 50px;
+  padding: 1rem 2rem;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #114d3b;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.f1 .col-1 #aceptar:hover {
+  background-color: rgb(7.7765957447, 35.2234042553, 26.9893617021);
+  color: #fff;
+}
+.f1 .col-1 #cancelar {
+  margin-bottom: 50px;
+  padding: 1rem 2rem;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #781b1b;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.f1 .col-1 #cancelar:hover {
+  background-color: rgb(78.3673469388, 17.6326530612, 17.6326530612);
+  color: #fff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+}
+@media only screen and (max-width: 575.98px) {
+  .table {
+    display: none;
+  }
+}
+@media only screen and (min-width: 575.99px) and (max-width: 767.98px) {
+  .table {
+    display: none;
+  }
+}
+@media only screen and (min-width: 767.99px) and (max-width: 1199.97px) {
+  .table {
+    display: none;
+  }
+}
+.table tr th,
+.table tr td {
+  padding: 10px;
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+.table thead tr {
+  background-color: #781b1b;
+  color: #fff;
+  text-transform: uppercase;
+}
+.table tbody tr:nth-of-type(even) {
+  background-color: #979797;
+  color: #fff;
+}
+.table tbody tr:nth-of-type(even) a {
+  color: #fff;
+}
+.table tbody tr td {
+  text-align: center;
+}
+
+.table-mobile {
+  /*
+      breakpoints are viewport arbitrary values,
+      they are defined with the aim of allowing the SCSS/CSS code of your app' behave accordingly to your user's device width,
+      the breakpoints I used were inspired by Bootstrap =>
+      https://getbootstrap.com/docs/5.0/layout/breakpoints/
+  */
+}
+@media only screen and (min-width: 1199.98px) {
+  .table-mobile {
+    display: none;
+  }
+}
+.table-mobile .fila .columna {
+  display: flex;
+}
+.table-mobile .fila .columna .col-header, .table-mobile .fila .columna .col-contenido {
+  border: solid 1px #000;
+  border-bottom: none;
+  padding: 1rem;
+  text-align: center;
+}
+.table-mobile .fila .columna .col-header {
+  text-transform: uppercase;
+  width: 40%;
+  background-color: #781b1b;
+  color: #fff;
+}
+.table-mobile .fila .columna .col-contenido {
+  width: 60%;
+}
+.table-mobile .fila:nth-of-type(even) {
+  background-color: #979797;
+  color: #fff;
+}
+.table-mobile .fila:nth-of-type(even) .col-contenido a {
+  color: #fff;
+}
+
+.btn {
+  padding: 10px 20px;
+  display: inline-block;
+  border: none;
+  border-radius: 0px;
+  color: #fff;
+  background-color: #114d3b;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+}
+.btn:hover {
+  background-color: rgb(7.7765957447, 35.2234042553, 26.9893617021);
+  color: #fff;
+}

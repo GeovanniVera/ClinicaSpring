@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/usuarios")
-public class UsuariosController {
-
+@RequestMapping("/alergias")
+public class AlergiasController {
     @GetMapping("/")
-    public String listaUsuario(){
-        return "usuarios/lista-usuario";
+    public String listaAlergias(){
+        return "alergias/lista-alergias";
     }
-    
-    @GetMapping("/agregarUsuario")
-    public String agregarUsuario(){
-        return "usuarios/form-usuario";
+
+    @GetMapping("/agregar")
+    public String agregarAlergia(){
+        return "alergias/form-alergia";
     }
 }
+

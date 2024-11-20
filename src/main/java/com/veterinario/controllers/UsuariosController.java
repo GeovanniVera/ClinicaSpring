@@ -13,7 +13,7 @@ public class UsuariosController {
         return "usuarios/lista-usuario";
     }
     
-    @GetMapping("/agregarUsuario")
+    @GetMapping("/agregar")
     public String agregarUsuario(){
         return "usuarios/form-usuario";
     }

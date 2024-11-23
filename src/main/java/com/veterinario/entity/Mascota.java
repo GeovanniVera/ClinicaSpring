@@ -1,5 +1,6 @@
 package com.veterinario.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,48 +8,35 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="MASCOTAS")
+@Table(name="mascota")
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_mascota")
     private int id;
-    private int id_cliente;
+    @Column(name = "id_cliente")
+    private int idCliente;
     private String nombre;
     private String tipo;
     private String raza;
     private String sexo;
     private String color;
-    private String fecha_de_nacimiento;
+    @Column(name = "fecha_de_nacimiento")
+    private String fechaDeNacimiento;
     private double talla;
     private double peso;
     private String estatus;
-    public Mascota(int id, int id_cliente, String nombre, String tipo, String raza, String sexo, String color,
-            String fecha_de_nacimiento, double talla, double peso, String estatus) {
-        this.id = id;
-        this.id_cliente = id_cliente;
-        this.nombre = nombre;
-        this.tipo = tipo;
-        this.raza = raza;
-        this.sexo = sexo;
-        this.color = color;
-        this.fecha_de_nacimiento = fecha_de_nacimiento;
-        this.talla = talla;
-        this.peso = peso;
-        this.estatus = estatus;
-    }
-    public Mascota() {
-    }
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public int getId_cliente() {
-        return id_cliente;
+    public int getIdCliente() {
+        return idCliente;
     }
-    public void setId_cliente(int id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
     public String getNombre() {
         return nombre;
@@ -80,11 +68,11 @@ public class Mascota {
     public void setColor(String color) {
         this.color = color;
     }
-    public String getFecha_de_nacimiento() {
-        return fecha_de_nacimiento;
+    public String getFechaDeNacimiento() {
+        return fechaDeNacimiento;
     }
-    public void setFecha_de_nacimiento(String fecha_de_nacimiento) {
-        this.fecha_de_nacimiento = fecha_de_nacimiento;
+    public void setFechaDeNacimiento(String fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
     public double getTalla() {
         return talla;
@@ -101,15 +89,8 @@ public class Mascota {
     public String getEstatus() {
         return estatus;
     }
-    public void setEstarus(String estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-    @Override
-    public String toString() {
-        return "Mascota [id=" + id + ", id_cliente=" + id_cliente + ", nombre=" + nombre + ", tipo=" + tipo + ", raza="
-                + raza + ", sexo=" + sexo + ", color=" + color + ", fecha_de_nacimiento=" + fecha_de_nacimiento
-                + ", talla=" + talla + ", peso=" + peso + ", estatus=" + estatus + "]";
-    }
-
 
 }

@@ -1,5 +1,6 @@
 package com.veterinario.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,17 +8,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="EMPLEADOS")
+@Table(name="empleados")
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_empleado")
     private int id;
+    @Column(name = "id_contacto")
     private int idContacto;
+    @Column(name = "fecha_de_inicio")
     private String fechaInicio;
     private String imagen;
     private String nombre;
+    @Column(name = "apellido_materno")
     private String apellidoPaterno;
+    @Column(name = "apellido_paterno")
     private String apellidoMaterno;
+    @Column(name = "cedula_profesional")
     private String cedulaProfesional;
     private String rol;
     private String estatus;

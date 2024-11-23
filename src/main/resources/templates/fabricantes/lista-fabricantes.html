@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head th:insert="~{fragmentos/head::head}">
     <!--Head fragment-->
 </head>
-
 <body>
     <!-- Menu -->
     <div class="" th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
-    </div>
+     </div>
     <!-- header -->
     <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
         <!-- fragmento de header-->
     </header>
     <!-- Contenido Index -->
-    <div class=" container__lista container">
-        <h2 class="text-center text-uppercase my-5">Alergias</h2>
+    <div class=" container">
+        <h2>Fabricantes</h2>
+        <a href="form-diagnostico.html" class="btn btn-outline-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
-            <thead>
-                <tr class="table-dark">
+            <thead class="table-dark">
+                <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th colspan="2">Operaciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="alergia:${alergias}">
-                    <th th:text="${alergia.id}"></th>
-                    <td th:text="${alergia.nombre}"></td>
-                    <td><a href="@{/alergias/}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td class="lista__contenido"><a th:href="@{/alergias/eliminar(id=${alergia.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a href=""><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><i class="fa-solid fa-trash trash"></i></td>
                 </tr>
             </tbody>
         </table>
-        <!-- Tabla que se vera en dispositivos pequeños -->
-        <div class="table-mobile my-5">
+        <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila" th:each="alergia:${alergias}">
+            <div class="fila">
                 <div class="columna">
                     <div class="col-header">id</div>
-                    <div class="col-contenido" th:text="${alergia.id}"></div>
+                    <div class="col-contenido"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Nombre</div>
-                    <div class="col-contenido" th:text="${alergia.nombre}"></div>
+                    <div class="col-contenido"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="@{/alergias}"><i
+                    <div class="col-contenido"><a href=""><i
                                 class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><a th:href="@{/alergias/eliminar(id=${alergia.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
+                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
                 </div>
 
             </div>
             <!-- Fin de la fila mobile -->
         </div>
-        <a th:href="@{/alergias/agregar}" class="btn btn-success">Agregar</a>
-        <script th:src="@{/js/menu.js}"></script>
+    </div>
+    <!-- Pie de pagina -->
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

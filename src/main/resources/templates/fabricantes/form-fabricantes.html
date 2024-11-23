@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es">    
 <head th:insert="~{fragmentos/head::head}">
     <!--Head fragment-->
 </head>
 <body>
     <!-- Menu -->
-     <div class="" th:insert="~{fragmentos/menu::menu-principal}">
+    <div class="" th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
      </div>
     <!-- header -->
@@ -13,25 +13,27 @@
         <!-- fragmento de header-->
     </header>
     <!-- Contenido container Usuario -->
-    <div class="container my-5">
+    <div class="container">
         <div class="container container-container">
-            <form th:action="@{/alergias/guardar}" method ="post" class="container">
-                <h3 class="text-center text-uppercase my-5">Alergia</h3>
+            <form action="" class="container">
+                <h3 class="text-center text-uppercase my-5">Registrar Fabricantes</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="text" required class="form-control" name="nombre" placeholder="Nombre de la Alergia" autofocus>
+                        <label>Nombre</label>
+                        <input type="text" required class="form-control">
                     </div>
+                    
                 </div>
                 <!-- Fin row -->
                 <div class="row">
                     <!-- Columna 1 -->
-                    <div class="col-12 col-md-6 col-md-3 col-lg-2 my-3">
-                        <input type="submit" value="Aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-outline-success text-uppercase">
                     </div>
-                    <div class="col-12 col-md-6 col-md-3 col-lg-2 my-3">
-                        <button   class="form-control btn btn-danger text-uppercase" th:onclick="|window.location='@{/alergias/}'|">Cancelar</button>
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <button  id="cancelar" class="form-control btn btn-outline-danger text-uppercase">Cancelar</button>
                     </div>
                 </div>
             </form>

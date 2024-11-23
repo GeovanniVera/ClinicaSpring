@@ -8,19 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "alergia")
-public class Alergia {
+@Table(name = "fabricantes")
+public class Fabricante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_alergia")
+    @Column(name = "id_fabricante")
     private int id;
     private String nombre;
-    public Alergia(int id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
-    }
-    public Alergia() {
-    }
     public int getId() {
         return id;
     }
@@ -33,8 +27,4 @@ public class Alergia {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    @Override
-    public String toString() {
-        return "Alergia [id=" + id + ", nombre=" + nombre + "]";
-    } 
 }

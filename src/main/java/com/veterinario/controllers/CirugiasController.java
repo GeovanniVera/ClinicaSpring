@@ -40,7 +40,7 @@ public class CirugiasController {
     public String getMethodName(@RequestParam ("id") int idCirugia, Model model) {
         Cirugia cirugia = serviceCirugia.buscarPorId(idCirugia);
         model.addAttribute("cirugia", cirugia);
-        return new String();
+        return new String("cirugias/form-cirugia");
     }
     
     @GetMapping("/eliminar")

@@ -25,17 +25,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cirugia:${cirugias}">
-                    <th scope="row" th:text="$cirugia.id">001</th>
+                <tr th:each="cirugia : ${cirugias}">
+                    <th scope="row" th:text="${cirugia.id}">001</th>
                     <td th:text="${cirugia.nombre}"></td>
                     <td><a th:href="@{/cirugias/actualizar(id=${cirugia.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td class="lista__contenido"><a th:href="@{/cirugias/eliminar(id=${cirugia.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                </tr>
+                <tr th:if="${cirugias.size() == 0}">
+                    <td colspan="4">No hay cirugías registradas.</td>
                 </tr>
             </tbody>
         </table>
         <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila" th:each="cirugia:${cirugias}">
+            <div class="fila" th:each="cirugia : ${cirugias}">
                 <div class="columna">
                     <div class="col-header">ID</div>
                     <div class="col-contenido" th:text="${cirugia.id}"></div>

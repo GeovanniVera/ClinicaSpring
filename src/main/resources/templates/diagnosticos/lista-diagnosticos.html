@@ -15,49 +15,54 @@
     <!-- Contenido Index -->
     <div class=" container">
         <h2>Diagnosticos</h2>
-        <a href="form-diagnostico.html" class="btn btn-outline-success my-3">Agregar</a>
+        <a th:href="@{/diagnosticos/agregar}" class="btn btn-outline-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Descripcion</th>
+                    <th>Fecha de Diagnostico</th>
                     <th colspan="2">Operaciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Diarrea Explosiva</td>
-                    <td>Diarrea diabolica</td>
-                    <td><a href="form-empleado.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="diagnostico:${diagnosticos}">
+                    <td th:text="${diagnostico.id}"></td>
+                    <td th:text="${diagnostico.nombre}"></td>
+                    <td th:text="${diagnostico.descripcion}"></td>
+                    <td th:text="${diagnostico.fecha_diagnostico}"></td>
+                    <td><a th:href="@{/diagnosticos/buscar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/diagnosticos/eliminar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
             </tbody>
         </table>
         <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila">
+            <div class="fila" th:each="diagnostico:${diagnosticos}">
                 <div class="columna">
                     <div class="col-header">id</div>
-                    <div class="col-contenido">1</div>
+                    <div class="col-contenido" th:text="${diagnostico.id}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Nombre</div>
-                    <div class="col-contenido">Diarrea</div>
+                    <div class="col-contenido" th:text="${diagnostico.nombre}"></div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">descripcion</div>
-                    <div class="col-contenido">Diarrea diabolica</div>
+                    <div class="col-header">Descripcion</div>
+                    <div class="col-contenido" th:text="${diagnostico.descripcion}"></div>
+                </div>
+                <div class="columna">
+                    <div class="col-header">Fecha de Diagnostico</div>
+                    <div class="col-contenido" th:text="${diagnostico.fecha_diagnostico}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="form-servicio.html"><i
-                                class="fa-solid fa-pencil pencil"></i></a></div>
+                    <div class="col-contenido"><a href="form-servicio.html"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
+                    <div class="col-contenido"> <a href=""><i class="fa-solid fa-trash trash"> </i> </a></div>
                 </div>
 
             </div>

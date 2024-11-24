@@ -4,19 +4,7 @@
     <!--Head fragment-->
 </head>
 <body>
-    <header class="header">
-        <div class="container__header container">
-            <div class="header__info">
-                <a href="index.html" id="logo_enlace"><img src="img/LOGOJUNGLAV2.png" alt="logo de empresa" class="header__logo"></a>
-                <h2 class="header__titulo">software de gestion veterinaria</h2>
-            </div>
-            <nav class="header__nav">
-                <a href="index.html" class="header__enlace"><i class="fa-solid fa-house"></i> Inicio</a>
-                <a href="#" class="header__enlace"><i class="fa-solid fa-shield-dog"></i> Servicios</a>
-                <a href="sesion.html" class="header__enlace"><i class="fa-solid fa-user"></i> Iniciar Sesion</a>
-            </nav>
-        </div>
-    </header>
+    <header class="header" th:insert="~{fragmentos/header-inicio::headerInicio}"></header>
     <!-- Contenido Index -->
     <div class="pagina-principal">
         <!-- Primera Columna -->
@@ -41,30 +29,7 @@
         </div>
     </div>
     <!-- Pie de pagina -->
-    <footer class="footer">
-        <div class="container__footer container">
-            <div class="footer__dir">
-                <h3 class="footer__dir__titulo">Direccion</h3>
-                <p class="footer__parrafo">
-                    Calle, Gral. Juan Manuel Torrea 40 bis, esquina José María, Iztapalapa, 09100 Parras de la Fuente,
-                    CDMX
-                </p>
-                <h3 class="footer__dir__titulo">Contacto</h3>
-                <p class="footer__parrafo centrar">
-                    <i class="fa-solid fa-phone"></i> 5529459032
-                </p>
-
-            </div>
-            <div class="footer__social">
-                <h3 class="footer__social__titulo">Redes Sociales</h3>
-                <div class="footer__social__enlaces">
-                    <a href="#" class="footer__enlace"><i class="fa-brands fa-facebook"></i>Facebook</a>
-                    <a href="#" class="footer__enlace"><i class="fa-brands fa-whatsapp"></i>whatsapp</a>
-                    <a href="#" class="footer__enlace"><i class="fa-brands fa-instagram"></i>Instagram</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer class="footer" th:insert="~{fragmentos/footer::footer}"></footer>
 </body>
 
 </html>

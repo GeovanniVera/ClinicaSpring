@@ -43,5 +43,11 @@ public class UsuariosServices implements InUsuariosServices{
     public int total() {
         return (int) repoUsuarios.count();
     }
+
+
+    @Override
+    public Usuario findByUserName(String nombre) {
+        return repoUsuarios.findByUserName(nombre);
+    }
     
 }

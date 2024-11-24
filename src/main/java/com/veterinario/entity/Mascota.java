@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="mascota")
+@Table(name="mascotas")
 public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +17,7 @@ public class Mascota {
     @Column(name = "id_cliente")
     private int idCliente;
     private String nombre;
+    private String imagen;
     private String tipo;
     private String raza;
     private String sexo;
@@ -91,6 +92,18 @@ public class Mascota {
     }
     public void setEstatus(String estatus) {
         this.estatus = estatus;
+    }
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    @Override
+    public String toString() {
+        return "Mascota [id=" + id + ", idCliente=" + idCliente + ", nombre=" + nombre + ", imagen=" + imagen
+                + ", tipo=" + tipo + ", raza=" + raza + ", sexo=" + sexo + ", color=" + color + ", fechaDeNacimiento="
+                + fechaDeNacimiento + ", talla=" + talla + ", peso=" + peso + ", estatus=" + estatus + "]";
     }
 
 }

@@ -14,26 +14,32 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private int id;
-    @Column(name = "id_empleado")
-    private int idEmpleado;
-    private String contraseña;
+    private String userName;
+    private String password;
+    private String rol;
+
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    public String getRol() {
+        return rol;
+    }
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public int getIdEmpleado() {
-        return idEmpleado;
-    }
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
-    public String getContraseña() {
-        return contraseña;
-    }
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
-    
 }

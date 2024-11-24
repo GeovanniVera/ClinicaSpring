@@ -15,11 +15,12 @@
     <!-- Contenido Index -->
     <div class="container">
         <h2>Mascota</h2>
-        <a href="form-mascota.html" class="btn btn-success my-3">Agregar</a>
+        <a th:href="@{/mascotas/agregar}" class="btn btn-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>
+                    <th>Estatus</th>
                     <th>Imagen</th>
                     <th>Nombre</th>
                     <th>Tipo</th>
@@ -33,74 +34,70 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td><img src="img/pugs.png" alt=""></td>
-                    <td>Manchas</td>
-                    <td>cachorro</td>
-                    <td>Pastor aleman</td>
-                    <td>Macho</td>
-                    <td>cafe</td>
-                    <td>6 Años</td>
-                    <td>Grande</td>
-                    <td>10kg</td>
-                    <td><a href="form-mascota.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="mascota : ${mascotas}">
+                    <td th:text="${mascota.id}">001</td>
+                    <td th:text="${mascota.estatus}"></td>
+                    <td th:text="${mascota.imagen}"></td>
+                    <td th:text="${mascota.nombre}">Manchas</td>
+                    <td th:text="${mascota.tipo}">cachorro</td>
+                    <td th:text="${mascota.raza}">Pastor aleman</td>
+                    <td th:text="${mascota.sexo}">Macho</td>
+                    <td th:text="${mascota.color}">cafe</td>
+                    <td th:text="${mascota.fechaDeNacimiento}">6 Años</td>
+                    <td th:text="${mascota.talla}">Grande</td>
+                    <td th:text="${mascota.peso}">10kg</td>
+                    <td><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/mascotas/eliminar(id=${mascota.id})}"><i class="fa-solid fa-trash trash"></a></i></td>
                 </tr>
             </tbody>
         </table>
         <!-- Tabla que se vera en dispositivos pequeños -->
         <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila">
+            <div class="fila" th:each="mascota : ${mascotas}">
                 <div class="columna">
                     <div class="col-header">id</div>
-                    <div class="col-contenido">1</div>
+                    <div class="col-contenido" th:text="${mascota.id}">1</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">imagen</div>
-                    <div class="col-contenido">
-                        <picture>
-
-                        </picture>
-                    </div>
+                    <div class="col-contenido" th:text="${mascota.imagen}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Nombre</div>
-                    <div class="col-contenido">Manchas</div>
+                    <div class="col-contenido" th:text="${mascota.nombre}">Manchas</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">tipo</div>
-                    <div class="col-contenido">cachorro</div>
+                    <div class="col-contenido" th:text="${mascota.tipo}">cachorro</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">raza</div>
-                    <div class="col-contenido">pastor aleman</div>
+                    <div class="col-contenido" th:text="${mascota.raza}">pastor aleman</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">color</div>
-                    <div class="col-contenido">Cafe</div>
+                    <div class="col-contenido" th:text="${mascota.color}">Cafe</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">edad</div>
-                    <div class="col-contenido">6 años</div>
+                    <div class="col-contenido" th:text="${mascota.fechaDeNacimiento}">6 años</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">talla</div>
-                    <div class="col-contenido">Grande</div>
+                    <div class="col-contenido" th:text="${mascota.talla}">Grande</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">peso</div>
-                    <div class="col-contenido">53 kg</div>
+                    <div class="col-contenido" th:text="${mascota.peso}">53 kg</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="form-servicio.html"><i
-                                class="fa-solid fa-pencil pencil"></i></a></div>
+                    <div class="col-contenido"><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
+                    <div class="col-contenido"><a th:href="@{/mascotas/eliminar(id=${mascota.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
 
             </div>

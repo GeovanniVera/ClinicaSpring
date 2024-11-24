@@ -15,19 +15,20 @@
     <!-- Contenido container Usuario -->
     <div class="container">
         <div class="container container-container">
-            <form th:action="@{/diagnosticos/guardar}" class="container" method="post">
-                <h3 class="text-center text-uppercase my-5">Registrar Diagnostico</h3>
+            <form th:action="@{/diagnosticos/guardar}" th:object="${diagnosticos}" class="container" method="post">
+                <input type="hidden" th:field="*{id}"> 
+                <h3 class="text-center text-uppercase my-5">Actualizar Diagnostico</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
                         <label>Nombre del Diagnostico</label>
-                        <input type="text" required class="form-control" placeholder="Diagnostico" id="nombre" name="nombre">
+                        <input th:field="*{nombre}" type="text" required class="form-control" placeholder="Diagnostico" id="nombre" name="nombre">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
                         <label for="">Fecha de diagnostico</label>
-                        <input type="date" required class="form-control" id="fecha_diagnostico" name="fecha_diagnostico">
+                        <input th:field="*{fecha_diagnostico}" type="date" required class="form-control" id="fecha_diagnostico" name="fecha_diagnostico">
                     </div>
                 </div>
                 <!-- Fin row -->
@@ -36,7 +37,7 @@
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
                         <label>Informacion de diagnostico</label>
-                        <input type="text" required class="form-control" placeholder="Descripcion" id="descripcion" name="descripcion">
+                        <input th:field="*{descripcion}" type="text" required class="form-control" placeholder="Descripcion" id="descripcion" name="descripcion">
                     </div>
                 </div>
                 <div class="row">

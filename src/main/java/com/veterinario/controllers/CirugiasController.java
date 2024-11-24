@@ -54,7 +54,5 @@ public class CirugiasController {
         serviceCirugia.guardarCirugia(cirugia);
         return "redirect:/cirugias/";
     }
-    
-    
-    
+
 }

@@ -47,6 +47,13 @@ public class AlergiasController {
         return new String("redirect:/alergias/");
     }
 
+    @GetMapping("/actualizar")
+    public String actualizarAlergia(@RequestParam("id") int idAlergia) {
+        Alergia alergia = serviceAlergia.buscarPorId(idAlergia);
+        return new String("redirect:/alergias/agregar");
+    }
+    
+
     @GetMapping("/eliminar")
     public String getMethodName(@RequestParam("id") int idAlergia) {
         serviceAlergia.eliminarAlergia(idAlergia);

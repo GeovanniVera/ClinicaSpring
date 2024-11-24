@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:insert="~{fragmentos/head::head}">
+    <!--Head fragment-->
+</head>
+<body>
+    <!-- Menu -->
+    <div class="" th:insert="~{fragmentos/menu::menu-principal}">
+        <!-- Fragmento de menu -->
+     </div>
+    <!-- header -->
+    <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
+        <!-- fragmento de header-->
+    </header>
+    <!-- Contenido container Usuario -->
+    <div class="container my-5">
+        <div class="container container-container">
+            <form th:action="@{/clientes/guardar}" class="container" method="post" th:object="${cliente}">
+                <!-- Fila 1 -->
+                <div class="row">
+                    <input type="hidden" th:field="*{id}">
+                </div>
+                <h3 class="text-center text-uppercase my-5">Datos generales</h3>
+                <div class="row">
+                    <!-- columna 1 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="text" required class="form-control" name="nombre" placeholder="Nombre del Cliente" th:field="*{nombre}">
+                    </div>
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="text" required class="form-control" name="apellidoPaterno" placeholder="Apellido Paterno" th:field="*{apellidoPaterno}">
+                    </div>
+                </div>
+                <!-- Fin row -->
+                <!-- F2 -->
+                <div class="row">
+                    <!-- columna 1 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="text" required class="form-control" name="apellidoMaterno" placeholder="Apellido Materno" th:field="*{apellidoMaterno}">
+                    </div>
+                </div>
+                <h3 class="text-center text-uppercase my-5">Contacto</h3>
+                <div class="row">
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="tel"  class="form-control" name="telefonoMovil" placeholder="Telefono Movil" th:field="*{telefonoMovil}" pattern="[0-9]+">
+                    </div>
+                    <!-- Columna 1 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="tel"  class="form-control" name="telefonoFijo" placeholder="Telefono Fijo" th:field="*{telefonoFijo}" pattern="[0-9]+">
+                    </div>
+                </div>
+                <!-- Fin f2 -->
+                <!-- F3 -->
+                <div class="row">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="email"  class="form-control" name="correoElectronico" placeholder="Correo Electronico" th:field="*{correoElectronico}">
+                    </div>
+                </div>
+                <h3 class="text-center text-uppercase my-5">Direccion</h3>
+                <div class="row">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="number" required class="form-control" name="numero" placeholder="Numero de Casa" th:field="*{numero}">
+                    </div>
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="text" required class="form-control" name="calle" placeholder="Calle" th:field="*{calle}">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="text" required class="form-control" name="colonia" placeholder="Colonia" th:field="*{colonia}">
+                    </div>
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="number" required class="form-control" name="codigoPostal" placeholder="Codigo Postal" th:field="*{codigoPostal}">
+                    </div>
+                </div>
+                <h3 class="text-center text-uppercase my-5">Estado</h3>
+                <div class="row">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <select name="estatus" id="estado" class="form-control" th:field="*{estatus}">
+                            <option value="" disabled selected>---Seleccionar Estado del cliente---</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Columna 1 -->
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
+                    </div>
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <a th:onclick="|window.location='@{/clientes/}'|" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <!-- Fin container Usuario -->
+    <script th:src="@{/js/menu.js}"></script>
+</body>
+
+</html>

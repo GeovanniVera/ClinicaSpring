@@ -17,7 +17,7 @@
     <!-- Contenido Index -->
     <div class=" container">
         <h2 class="my-3">Empleados</h2>
-        <a href="form-empleado.html" class="btn btn-success my-3">Agregar</a>
+        <a th:href="@{/empleados/agregar}" class="btn btn-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
             <thead class="table-dark">
                 <tr>
@@ -36,80 +36,79 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td><img src="img/Empleado.png" alt=""></td>
-                    <td>Edgar</td>
-                    <td>delgado</td>
-                    <td>Estrella</td>
-                    <td>Veterinario</td> 
-                    <td>15/05/2023</td>                   
-                    <td>5529459032</td>
-                    <td>57294590</td>
-                    <td>EdgarDel@gmail.com</td>
-                    <td>1234567</td>
-                    <td><a href="form-empleado.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="empleado : ${empleados}">
+                    <td th:text="${empleado.id}">001</td>
+                    <td th:text="${empleado.imagen}"></td>
+                    <td th:text="${empleado.nombre}">Edgar</td>
+                    <td th:text="${empleado.apellidoPaterno}">delgado</td>
+                    <td th:text="${empleado.apellidoMaterno}">Estrella</td>
+                    <td th:text="${empleado.rol}">Veterinario</td> 
+                    <td th:text="${empleado.fechaInicio}">15/05/2023</td>                   
+                    <td th:text="${empleado.telefonoMovil}">5529459032</td>
+                    <td th:text="${empleado.telefonoFijo}">57294590</td>
+                    <td th:text="${empleado.correoElectronico}">EdgarDel@gmail.com</td>
+                    <td th:text="${empleado.cedulaProfesional}">1234567</td>
+                    <td><a th:href="@{/empleados/actualizar(id=${empleado.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/empleados/eliminar(id=${empleado.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
             </tbody>
         </table>
         <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila">
+            <div class="fila" th:each="empleado : ${empleados}">
                 <div class="columna">
                     <div class="col-header">id</div>
-                    <div class="col-contenido">1</div>
+                    <div class="col-contenido" th:text="${empleado.id}">1</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">imagen</div>
-                    <div class="col-contenido">
-                        <picture></picture>
+                    <div class="col-contenido" th:text="${empleado.imagen}">
                     </div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Nombre</div>
-                    <div class="col-contenido"> Edgar</div>
+                    <div class="col-contenido" th:text="${empleado.nombre}"> Edgar</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Apellido Paterno</div>
-                    <div class="col-contenido"> delgado</div>
+                    <div class="col-contenido" th:text="${empleado.apellidoPaterno}"> delgado</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Apellido Materno</div>
-                    <div class="col-contenido"> Estrella</div>
+                    <div class="col-contenido" th:text="${empleado.apellidoMaterno}"> Estrella</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">rol</div>
-                    <div class="col-contenido">Veterinario</div>
+                    <div class="col-contenido" th:text="${empleado.rol}">Veterinario</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">fecha de inicio</div>
-                    <div class="col-contenido">23/08/2024</div>
+                    <div class="col-contenido" th:text="${empleado.fechaInicio}">23/08/2024</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">numero movil</div>
-                    <div class="col-contenido">5522606580</div>
+                    <div class="col-contenido" th:text="${empleado.telefonoMovil}">5522606580</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">contacto de emergencia</div>
-                    <div class="col-contenido">23/08/2024</div>
+                    <div class="col-contenido" th:text="${empleado.telefonoFijo}">23/08/2024</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">correo</div>
-                    <div class="col-contenido">edgar@gmail.com</div>
+                    <div class="col-contenido" th:text="${empleado.correoElectronico}">edgar@gmail.com</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">cedula profesional</div>
-                    <div class="col-contenido">565446456</div>
+                    <div class="col-contenido" th:text="${empleado.cedulaProfesional}">565446456</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="form-servicio.html"><i
+                    <div class="col-contenido"><a th:href="@{/empleados/actualizar(id=${empleado.id})}"><i
                                 class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
+                    <div class="col-contenido"><a th:href="@{/empleados/eliminar(id=${empleado.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
 
             </div>

@@ -17,7 +17,8 @@
     <!-- Contenido Index -->
     <div class=" container__lista container">
         <h2 class="text-center text-uppercase my-5">Alergias</h2>
-        <table class="table table-striped table-hover table-hidden table-bordered text-center">
+        <a th:href="@{/alergias/agregar}" class="btn btn-success">Agregar</a>
+        <table class="table table-striped table-hover table-hidden table-bordered text-center mt-3">
             <thead>
                 <tr class="table-dark">
                     <th>ID</th>
@@ -59,7 +60,7 @@
             </div>
             <!-- Fin de la fila mobile -->
         </div>
-        <a th:href="@{/alergias/agregar}" class="btn btn-success">Agregar</a>
+        
         <script th:src="@{/js/menu.js}"></script>
 </body>
 

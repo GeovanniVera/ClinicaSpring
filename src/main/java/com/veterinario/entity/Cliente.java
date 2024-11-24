@@ -10,35 +10,28 @@ import jakarta.persistence.GenerationType;
 @Entity
 @Table(name="clientes")
 public class Cliente {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private int id;
-    
     private String nombre;
-
     @Column(name = "apellido_materno")
     private String apellidoMaterno;
-
     @Column(name = "apellido_paterno")
     private String apellidoPaterno;
-
     private String estatus; 
-    private int id_direccion;
-    private int id_contacto;
-    
-    public Cliente(int id, String nombre, String apellidoMaterno, String apellidoPaterno, String estatus,
-            int id_direccion, int id_contacto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidoMaterno = apellidoMaterno;
-        this.apellidoPaterno = apellidoPaterno;
-        this.estatus = estatus;
-        this.id_direccion = id_direccion;
-        this.id_contacto = id_contacto;
-    }
-    public Cliente() {
-    }
+    @Column(name = "telefono_movil")
+    private long telefonoMovil;
+    @Column(name = "telefono_fijo")
+    private long telefonoFijo;
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+    private int numero;
+    private String calle;
+    private String colonia;
+    @Column(name = "codigo_postal")
+    private long codigoPostal;
     public int getId() {
         return id;
     }
@@ -69,22 +62,53 @@ public class Cliente {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-    public int getId_direccion() {
-        return id_direccion;
+    public long getTelefonoMovil() {
+        return telefonoMovil;
     }
-    public void setId_direccion(int id_direccion) {
-        this.id_direccion = id_direccion;
+    public void setTelefonoMovil(long telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
     }
-    public int getId_contacto() {
-        return id_contacto;
+    public long getTelefonoFijo() {
+        return telefonoFijo;
     }
-    public void setId_contacto(int id_contacto) {
-        this.id_contacto = id_contacto;
+    public void setTelefonoFijo(long telefonoFijo) {
+        this.telefonoFijo = telefonoFijo;
+    }
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+    public int getNumero() {
+        return numero;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    public String getCalle() {
+        return calle;
+    }
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+    public String getColonia() {
+        return colonia;
+    }
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
+    }
+    public long getCodigoPostal() {
+        return codigoPostal;
+    }
+    public void setCodigoPostal(long codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
     @Override
     public String toString() {
         return "Cliente [id=" + id + ", nombre=" + nombre + ", apellidoMaterno=" + apellidoMaterno
-                + ", apellidoPaterno=" + apellidoPaterno + ", estatus=" + estatus + ", id_direccion=" + id_direccion
-                + ", id_contacto=" + id_contacto + "]";
+                + ", apellidoPaterno=" + apellidoPaterno + ", estatus=" + estatus + ", telefonoMovil=" + telefonoMovil
+                + ", telefonoFijo=" + telefonoFijo + ", correoElectronico=" + correoElectronico + ", numero=" + numero
+                + ", calle=" + calle + ", colonia=" + colonia + ", codigoPostal=" + codigoPostal + "]";
     }
 }

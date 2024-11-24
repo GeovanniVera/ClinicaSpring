@@ -9,7 +9,7 @@
     <!-- Menu -->
     <div class="" th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
-     </div>
+    </div>
     <!-- header -->
     <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
         <!-- fragmento de header-->
@@ -17,19 +17,17 @@
     <!-- Contenido container Usuario -->
     <div class="container contenido-container">
         <div class="container container-container">
-            <form action="lista-empleado.html" class="container">
+            <form th:action="@{/empleados/guardar}" class="container" method="post" >
                 <h3 class="text-uppercase text-center my-5">Datos Generales</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Nombre</label>
-                        <input type="text" required class="form-control">
+                        <input type="text" class="form-control" placeholder="Nombre del Empleado" name="nombre">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Apellido Paterno</label>
-                        <input type="text" required class="form-control">
+                        <input type="text" required class="form-control" placeholder="Apellido Paterno" name="apellidoPaterno" >
                     </div>
                 </div>
                 <!-- Fin row -->
@@ -37,61 +35,57 @@
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Apellido Materno</label>
-                        <input type="text" required class="form-control">
+                        <input type="text" required class="form-control" name="apellidoMaterno"  placeholder="Apellido Materno">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Rol</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">Veterinario</option>
-                            <option value="">Recepcionista</option>
+                        <select  id="rol" class="form-control" name="rol">
+                            <option value="" disabled selected>---Seleccionar Rol---</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="veterinario">Veterinario</option>
+                            <option value="recepcionista">Recepcionista</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Cedula Profesional</label>
-                        <input type="number" required class="form-control">
-                    </div>
-                    <!-- Columna 2 -->
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Status</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">Activo</option>
-                            <option value="">Inactivo</option>
+                        <select type="text" required class="form-control" name="estatus" >
+                            <option value="" disabled selected>---seleccionar estatus---</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
                         </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Fotografia</label>
-                        <input type="file" required class="form-control">
-                    </div>
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Fecha de Inicio</label>
-                        <input type="date" required class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-    
-                    <!-- Columna 1 -->
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Telefono Movil</label>
-                        <input type="tel" required class="form-control">
-                    </div>
+                    </div> 
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Coctacto Emergencia</label>
-                        <input type="tel" required class="form-control">
+                        <input type="text"  name="cedulaProfesional" id="cedulaProfesional"  class="form-control" placeholder="Cedula Profesional">
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <label for="imagen">Fotografia del Empleado</label>
+                        <input type="file" class="form-control"  name="imagen" id="imagen"  >
+                    </div>
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <label for="fechaInicio">Fecha de Inicio</label>
+                        <input type="date" required class="form-control" id="fechaInicio" name="fechaInicio">
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Columna 2 -->
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="tel"  class="form-control" name="telefonoMovil" placeholder="Telefono Movil" pattern="[0-9]+">
+                    </div>
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label for="">Correo Electronico</label>
-                        <input type="email" required class="form-control">
+                        <input type="tel"  class="form-control" name="telefonoFijo" placeholder="Telefono Fijo" pattern="[0-9]+">
+                    </div>
+                </div>
+                <!-- Fin f2 -->
+                <!-- F3 -->
+                <div class="row">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="email"  class="form-control" name="correoElectronico" placeholder="Correo Electronico" >
                     </div>
                 </div>
                 <div class="row">
@@ -100,7 +94,7 @@
                         <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
                     </div>
                     <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
-                        <button  id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</button>
+                        <a th:onclick="|window.location='@{/empleados/}'|" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
                     </div>
                 </div>
             </form>

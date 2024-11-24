@@ -14,11 +14,9 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_empleado")
     private int id;
-    @Column(name = "id_contacto")
-    private int idContacto;
     @Column(name = "fecha_de_inicio")
     private String fechaInicio;
-    private String imagen;
+    private String imagen = "empleado.jpg";
     private String nombre;
     @Column(name = "apellido_materno")
     private String apellidoPaterno;
@@ -28,33 +26,20 @@ public class Empleado {
     private String cedulaProfesional;
     private String rol;
     private String estatus;
-    public Empleado(int id, int idContacto, String fechaInicio, String imagen, String nombre, String apellidoPaterno,
-            String apellidoMaterno, String cedulaProfesional, String rol, String estatus) {
-        this.id = id;
-        this.idContacto = idContacto;
-        this.fechaInicio = fechaInicio;
-        this.imagen = imagen;
-        this.nombre = nombre;
-        this.apellidoPaterno = apellidoPaterno;
-        this.apellidoMaterno = apellidoMaterno;
-        this.cedulaProfesional = cedulaProfesional;
-        this.rol = rol;
-        this.estatus = estatus;
-    }
-    public Empleado() {
-    }
+    @Column(name = "telefono_movil")
+    private long telefonoMovil;
+    @Column(name = "telefono_fijo")
+    private long telefonoFijo;
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+    
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public int getIdContacto() {
-        return idContacto;
-    }
-    public void setIdContacto(int idContacto) {
-        this.idContacto = idContacto;
-    }
+
     public String getFechaInicio() {
         return fechaInicio;
     }
@@ -103,12 +88,32 @@ public class Empleado {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
+    
+    public long getTelefonoMovil() {
+        return telefonoMovil;
+    }
+    public void setTelefonoMovil(long telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
+    }
+    public long getTelefonoFijo() {
+        return telefonoFijo;
+    }
+    public void setTelefonoFijo(long telefonoFijo) {
+        this.telefonoFijo = telefonoFijo;
+    }
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
     @Override
     public String toString() {
-        return "Empleado [id=" + id + ", idContacto=" + idContacto + ", fechaInicio=" + fechaInicio + ", imagen="
+        return "Empleado [id=" + id +  ", fechaInicio=" + fechaInicio + ", imagen="
                 + imagen + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno="
                 + apellidoMaterno + ", cedulaProfesional=" + cedulaProfesional + ", rol=" + rol + ", estatus=" + estatus
-                + "]";
+                + ", telefonoMovil=" + telefonoMovil + ", telefonoFijo=" + telefonoFijo + ", correoElectronico="
+                + correoElectronico + "]";
     }
     
 }

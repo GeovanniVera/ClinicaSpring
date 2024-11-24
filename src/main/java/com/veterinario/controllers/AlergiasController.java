@@ -48,9 +48,10 @@ public class AlergiasController {
     }
 
     @GetMapping("/actualizar")
-    public String actualizarAlergia(@RequestParam("id") int idAlergia) {
+    public String actualizarAlergia(@RequestParam("id") int idAlergia, Model model) {
         Alergia alergia = serviceAlergia.buscarPorId(idAlergia);
-        return new String("redirect:/alergias/agregar");
+        model.addAttribute("alergia", alergia);
+        return new String("alergias/form-alergia");
     }
     
 

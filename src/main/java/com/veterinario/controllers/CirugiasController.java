@@ -36,7 +36,13 @@ public class CirugiasController {
     public String agregar() {
         return new String("cirugias/form-cirugia");
     }
-
+    @GetMapping("/actualizar")
+    public String getMethodName(@RequestParam ("id") int idCirugia, Model model) {
+        Cirugia cirugia = serviceCirugia.buscarPorId(idCirugia);
+        model.addAttribute("cirugia", cirugia);
+        return new String();
+    }
+    
     @GetMapping("/eliminar")
     public String eliminar(@RequestParam("id") int idCirugia) {
         serviceCirugia.eliminarCirugia(idCirugia);
@@ -44,7 +50,7 @@ public class CirugiasController {
     }
 
     @PostMapping("/guardar")
-    public String postMethodName(Cirugia cirugia) {
+    public String guardar(Cirugia cirugia) {
         serviceCirugia.guardarCirugia(cirugia);
         return "redirect:/cirugias/";
     }

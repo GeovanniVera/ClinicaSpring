@@ -15,25 +15,13 @@
     <!-- Contenido container Usuario -->
     <div class="container">
         <div class="container container-container my-5">
-            <form action="lista-cirugias.html" class="container">
+            <form th:action="@{/cirugias/guardar}" class="container" method="post">
                 <h3 class="text-center text-uppercase my-5">Cirugia</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Nombre de la Cirugia</label>
-                        <input type="text" required class="form-control">
-                    </div>
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Precio</label>
-                        <input type="number" required class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- columna 1 -->
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Detalles</label>
-                        <input type="text" required class="form-control">
+                        <input type="text" required class="form-control" name="nombre" placeholder="nombre de la cirugia">
                     </div>
                 </div>
                 <div class="row">

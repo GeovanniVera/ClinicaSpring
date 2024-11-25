@@ -25,11 +25,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td><a href=""><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="fabricante : ${fabricantes}"></tr>
+                <td th:text="${fabricante.id}">001</td>
+                <td th:text="${fabricante.nombre}"></td>
+                    <td><a href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"></a><i class="fa-solid fa-trash trash"></i></td>
                 </tr>
             </tbody>
         </table>

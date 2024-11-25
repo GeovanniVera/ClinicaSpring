@@ -27,13 +27,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Emulcion</td>
-                    <td>Tomar Emulcion 2 veces a la semana</td>
-                    <td>5</td>
-                    <td><a href="form-empleado.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="tratamiento : ${tratamientos}">
+                    <td th:text="${tratamiento.id}">001</td>
+                    <td th:text="${tratamiento.nombre}"></td>Emulcion</td>
+                    <td th:text="${tratamiento.descripcion}"></td><td>Tomar Emulcion 2 veces a la semana</td>
+                    <td th:text="${tratamiento.dias}"></td>
+                    <td><a th:href="@{/tratamientos/actualizar(id=${tratamiento.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/tratamientos/eliminar(id=${tratamiento.id})}"></a><i class="fa-solid fa-trash trash"></i></td>
                 </tr>
             </tbody>
         </table>

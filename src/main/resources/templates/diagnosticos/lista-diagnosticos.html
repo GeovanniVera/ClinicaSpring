@@ -35,6 +35,9 @@
                     <td><a th:href="@{/diagnosticos/buscar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td><a th:href="@{/diagnosticos/eliminar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
+                <tr th:if="${diagnosticos.size() == 0}">
+                    <td colspan="4">No hay diagnosticos registradas.</td>
+                </tr>
             </tbody>
         </table>
         <div class="table-mobile">

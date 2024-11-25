@@ -33,6 +33,9 @@
                     <td><a th:href="@{/alergias/actualizar(id=${alergia.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td class="lista__contenido"><a th:href="@{/alergias/eliminar(id=${alergia.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
+                <tr th:if="${alergias.size() == 0}">
+                    <td colspan="4">No hay alergias registradas.</td>
+                </tr>
             </tbody>
         </table>
         <!-- Tabla que se vera en dispositivos pequeños -->

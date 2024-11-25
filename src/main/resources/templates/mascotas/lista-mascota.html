@@ -49,6 +49,9 @@
                     <td><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td><a th:href="@{/mascotas/eliminar(id=${mascota.id})}"><i class="fa-solid fa-trash trash"></a></i></td>
                 </tr>
+                <tr th:if="${mascotas.size() == 0}">
+                    <td colspan="4">No hay mascotas registradas.</td>
+                </tr>
             </tbody>
         </table>
         <!-- Tabla que se vera en dispositivos pequeños -->

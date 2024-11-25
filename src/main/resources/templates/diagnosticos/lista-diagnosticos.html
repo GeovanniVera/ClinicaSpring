@@ -15,7 +15,7 @@
     <!-- Contenido Index -->
     <div class=" container">
         <h2>Diagnosticos</h2>
-        <a th:href="@{/diagnosticos/agregar}" class="btn btn-outline-success my-3">Agregar</a>
+        <a th:href="@{/diagnosticos/agregar}" class="btn btn-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
             <thead class="table-dark">
                 <tr>
@@ -34,6 +34,9 @@
                     <td th:text="${diagnostico.fecha_diagnostico}"></td>
                     <td><a th:href="@{/diagnosticos/buscar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td><a th:href="@{/diagnosticos/eliminar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                </tr>
+                <tr th:if="${diagnosticos.size() == 0}">
+                    <td colspan="4">No hay diagnosticos registradas.</td>
                 </tr>
             </tbody>
         </table>

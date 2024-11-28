@@ -10,6 +10,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="servicios")
 public class Servicio {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_servicio")
@@ -49,6 +50,11 @@ public class Servicio {
     }
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+    @Override
+    public String toString() {
+        return "Servicio [id=" + id + ", nombreSerivicio=" + nombreSerivicio + ", descripcion=" + descripcion
+                + ", precioServicio=" + precioServicio + ", imagen=" + imagen + "]";
     }
     
 }

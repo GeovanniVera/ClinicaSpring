@@ -15,17 +15,18 @@
     <!-- Contenido container Usuario -->
     <div class="container my-5">
         <div class="container container-container">
-            <form th:action="@{/vacunas/guardar}" method="post" class="container" th:object="${vacuna}">
-                <h3 class="text-center text-uppercase my-5">Vacuna</h3>
+            <form th:action="@{/servicio/guardar}" method="post" class="container" th:object="${servicio}">
+                <h3 class="text-center text-uppercase my-3">Actualizar Servicio</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
+                     <input type="hidden" th:field="*{id}">
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre de la Vacuna">
+                        <input type="text" required class="form-control" name="nombre" placeholder="Nombre del servicio" th:field="*{nombre}">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="number" required class="form-control" id="costo_unitario" name="costo_unitario" placeholder="Costo Unitario">
+                        <input type="text" required class="form-control" name="precio" placeholder="Precio" th:field="*{precio}">
                     </div>
                 </div>
                 <!-- Fin row -->
@@ -33,38 +34,27 @@
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Tipo de vacuna</label>
-                        <select name="id_insumo" id="id_insumo" class="form-control" aria-placeholder="Tipo de Vacuna">
-                            <option value="">Tipo 1</option>
-                            <option value="">Tipo 2</option>
-                        </select>
+                        <input type="text" required class="form-control" name="descripcion" placeholder="Descripcion" th:field="*{descripcion}">
                     </div>
                     <!-- columna 2 -->
-                    <div class="col-12 col-md-6 my-3">
-                        <label>Fabricante</label>
-                        <select name="id_fabricante" id="id_fabricante" class="form-control" aria-placeholder="Fabricante">
-                            <option value="">Fabricante 1</option>
-                            <option value="">Fabricante 2</option>
-                        </select>
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <input type="file" required class="form-control" name="imagen" placeholder="Imagen" th:field="*{imagen}">
                     </div>
                 </div>
                 <!-- Fin f2 -->
                 <div class="row">
-                    <!-- columna 1 -->
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="text" class="form-control" id="dosis" name="dosis" placeholder="Dosis">
-                    </div>
-                </div>
-                <div class="row">
+                    <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
                         <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
                     </div>
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <a th:onclick="|window.location='@{/vacunas/}'" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
+                        <a th:onclick="|window.location='@{/servicios/}'" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <!-- Fin container Usuario -->
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 </html>

@@ -10,6 +10,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "vacunas")
 public class Vacuna {
+    @Override
+    public String toString() {
+        return "Vacuna [id=" + id + ", idFabricante=" + idFabricante + ", id_insumo=" + id_insumo + ", nombre=" + nombre
+                + ", dosisRequerida=" + dosisRequerida + "]";
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vacuna")

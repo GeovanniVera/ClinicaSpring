@@ -28,14 +28,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td><img src="img/peluqueria.jpg" alt=""></td>
-                    <td>Peluqueria</td>
-                    <td>Servicio completo de peluqueria.</td>
-                    <td>$300</td>
-                    <td><a href="form-servicio.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="servicio:${servicios}">
+                    <td th:text="${servicio.id_servicio}"></td>
+                    <td th:text="${servicio.imagen}"></td>
+                    <td th:text="${servicio.nombre_servicio}"></td>
+                    <td th:text="${servicio.descripcion}"></td>
+                    <td th:text="${servicio.precio_servicio}"></td>
+                    <td><a th:href="@{/servicios/buscar(idServicio=${servicio.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/servicios/eliminar(idServicio=${servicio.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
             </tbody>
         </table>

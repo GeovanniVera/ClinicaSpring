@@ -12,13 +12,12 @@ import jakarta.persistence.Table;
 public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_servicio")
     private int id;
     @Column(name = "nombre_servicio")
     private String nombreSerivicio;
     private String descripcion;
-    @Column(name = "precio_servicio")
-    private double precioServicio;
+    @Column(name = "costo_servicio")
+    private double costoServicio;
     private String imagen;
     public int getId() {
         return id;
@@ -38,17 +37,23 @@ public class Servicio {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public double getPrecioServicio() {
-        return precioServicio;
-    }
-    public void setPrecioServicio(double precioServicio) {
-        this.precioServicio = precioServicio;
-    }
+    
     public String getImagen() {
         return imagen;
     }
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+    public double getCostoServicio() {
+        return costoServicio;
+    }
+    public void setCostoServicio(double costoServicio) {
+        this.costoServicio = costoServicio;
+    }
+    @Override
+    public String toString() {
+        return "Servicio [id=" + id + ", nombreSerivicio=" + nombreSerivicio + ", descripcion=" + descripcion
+                + ", costoServicio=" + costoServicio + ", imagen=" + imagen + "]";
     }
     
 }

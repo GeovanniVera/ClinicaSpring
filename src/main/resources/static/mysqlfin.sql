@@ -1,9 +1,9 @@
 CREATE DATABASE mipeqeuniajungla;
 
-USE MIPEQUENIAJUNGLA;
+USE mipeqeuniajungla;
 
-CREATE TABLE CLIENTES (
-    id INT(4) AUTO_INCREMENT,
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT,
     telefono_movil BIGINT NOT NULL,
     telefono_fijo BIGINT,
     correo_electronico VARCHAR(320) NOT NULL,
@@ -15,11 +15,11 @@ CREATE TABLE CLIENTES (
     apellido_paterno VARCHAR(50) NOT NULL,
     apellido_materno VARCHAR(50),
     estatus VARCHAR(50) NOT NULL,
-    PRIMARY KEY(id_cliente)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE MASCOTAS (
-    id_mascota INT(4) AUTO_INCREMENT,
+CREATE TABLE mascotas (
+    id INT AUTO_INCREMENT,
     id_cliente INT(4),
     nombre VARCHAR(50),
     tipo VARCHAR(40),
@@ -30,33 +30,33 @@ CREATE TABLE MASCOTAS (
     talla DECIMAL(4, 2),
     peso DECIMAL(4, 2),
     estatus VARCHAR(50),
-    PRIMARY KEY(id_mascota),
-    FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id_cliente)
+    PRIMARY KEY(id),
+    FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id)
 );
 
-CREATE TABLE SERVICIOS (
-    id_servicio INT(4) AUTO_INCREMENT,
+CREATE TABLE servicios (
+    id INT AUTO_INCREMENT,
     nombre_servicio VARCHAR(50),
     descripcion VARCHAR(320),
-    precio_servicio DECIMAL(8, 2),
+    costo_servicio DECIMAL(8, 2),
     imagen VARCHAR(200),
-    PRIMARY KEY(id_servicio)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE CONTRATOS (
-    id_contrato INT(8) AUTO_INCREMENT,
-    id_cliente INT(4),
-    id_servicio INT(4),
+CREATE TABLE contratos (
+    id INT AUTO_INCREMENT,
+    id_cliente INT,
+    id_servicio INT,
     fecha_inicio DATE NOT NULL,
     fecha_finalizacion DATE NOT NULL,
     hora VARCHAR(8) NOT NULL,
-    PRIMARY KEY(id_contrato),
-    FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id_cliente),
-    FOREIGN KEY (id_servicio) REFERENCES SERVICIOS(id_servicio)
+    PRIMARY KEY(id),
+    FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id),
+    FOREIGN KEY (id_servicio) REFERENCES SERVICIOS(id)
 );
 
-CREATE TABLE EMPLEADOS (
-    id_empleado INT(4) AUTO_INCREMENT,
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT,
     telefono_movil BIGINT NOT NULL,
     telefono_fijo BIGINT,
     correo_electronico VARCHAR(320) NOT NULL,
@@ -66,163 +66,164 @@ CREATE TABLE EMPLEADOS (
     apellido_paterno VARCHAR(50) NOT NULL,
     apellido_materno VARCHAR(50),
     cedula_profesional VARCHAR(10),
-    rol VARCHAR(50),
     estatus VARCHAR(50) NOT NULL,
-    PRIMARY KEY(id_empleado),
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE USUARIOS (
-    id_usuario INT(4) AUTO_INCREMENT,
-    id_empleado INT(4),
-    contrasena VARCHAR(50) NOT NULL,
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT,
+    id_empleado INT,
+    contrasenia VARCHAR(50) NOT NULL,
     rol VARCHAR(50),
-    PRIMARY KEY(id_usuario),
-    FOREIGN KEY(id_empleado) REFERENCES EMPLEADOS(id_empleado)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_empleado) REFERENCES EMPLEADOS(id)
 );
 
-CREATE TABLE CITAS (
-    id_cita INT(8) AUTO_INCREMENT,
-    id_mascota INT(4),
-    id_cliente INT(4),
-    id_empleado INT(4),
+CREATE TABLE citas (
+    id INT AUTO_INCREMENT,
+    id_mascota INT,
+    id_cliente INT,
+    id_empleado INT,
     fecha DATE,
     hora VARCHAR(8),
     estatus VARCHAR(50),
-    PRIMARY KEY(id_cita),
-    FOREIGN KEY(id_empleado) REFERENCES EMPLEADOS(id_empleado),
-    FOREIGN KEY(id_mascota) REFERENCES MASCOTAS(id_mascota),
-    FOREIGN KEY(id_cliente) REFERENCES CLIENTES(id_cliente)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_empleado) REFERENCES EMPLEADOS(id),
+    FOREIGN KEY(id_mascota) REFERENCES MASCOTAS(id),
+    FOREIGN KEY(id_cliente) REFERENCES CLIENTES(id)
 );
 
-CREATE TABLE CITA_SERVICIO (
-    id_cita INT(8),
-    id_servicio INT(4),
+CREATE TABLE cita_servicio (
+    id_cita INT,
+    id_servicio INT,
     PRIMARY KEY(id_cita, id_servicio),
-    FOREIGN KEY(id_cita) REFERENCES CITAS(id_cita),
-    FOREIGN KEY(id_servicio) REFERENCES SERVICIOS(id_servicio)
+    FOREIGN KEY(id_cita) REFERENCES CITAS(id),
+    FOREIGN KEY(id_servicio) REFERENCES SERVICIOS(id)
 );
 
-CREATE TABLE DIAGNOSTICOS (
-    id_diagnostico INT(4) AUTO_INCREMENT,
+CREATE TABLE diagnosticos (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(320) NOT NULL,
-    PRIMARY KEY(id_diagnostico)
+    fecha_diagnostico DATE,
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE TRATAMIENTOS (
-    id_tratamiento INT(4) AUTO_INCREMENT,
+CREATE TABLE tratamientos (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(40) NOT NULL,
     descripcion VARCHAR(320) NOT NULL,
     dias_duracion INT(3),
-    PRIMARY KEY(id_tratamiento)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE FABRICANTES (
-    id_fabricante INT(4) AUTO_INCREMENT,
+CREATE TABLE fabricantes (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(40),
-    PRIMARY KEY(id_fabricante)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE INSUMOS (
-    id_insumo INT(4) AUTO_INCREMENT,
+CREATE TABLE insumos (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(50),
     descripcion VARCHAR(320),
     tipo VARCHAR(50),
-    PRIMARY KEY(id_insumo)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE VACUNAS (
-    id_vacuna INT(4) AUTO_INCREMENT,
-    id_fabricante INT(4),
-    id_insumo INT(4),
+CREATE TABLE vacunas (
+    id INT AUTO_INCREMENT,
+    id_fabricante INT,
+    id_insumo INT,
     nombre VARCHAR(50),
-    dosis_requerida INT(1),
-    PRIMARY KEY(id_vacuna),
-    FOREIGN KEY(id_fabricante) REFERENCES FABRICANTES(id_fabricante),
-    FOREIGN KEY(id_insumo) REFERENCES INSUMOS(id_insumo)
+    dosis_requerida DECIMAL(4,2),
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_fabricante) REFERENCES FABRICANTES(id),
+    FOREIGN KEY(id_insumo) REFERENCES INSUMOS(id)
 );
 
-CREATE TABLE CIRUGIAS (
-    id_cirugia INT(8) AUTO_INCREMENT,
+CREATE TABLE cirugias (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(50),
-    PRIMARY KEY(id_cirugia)
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE ALERGIA (
-    id_alergia INT(4) AUTO_INCREMENT,
+CREATE TABLE alergias (
+    id INT AUTO_INCREMENT,
     nombre VARCHAR(50),
-    PRIMARY KEY(id_alergia)
+    sintomas text,
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE INVENTARIO (
-    id_inventario INT(8) AUTO_INCREMENT,
-    id_insumo INT(4),
+CREATE TABLE inventario (
+    id INT AUTO_INCREMENT,
+    id_insumo INT,
     nombre VARCHAR(50) NOT NULL,
     costo DECIMAL(8, 2) NOT NULL,
     cantidad INT(4) NOT NULL,
     estatus VARCHAR(50) NOT NULL,
-    PRIMARY KEY(id_inventario),
-    FOREIGN KEY(id_insumo) REFERENCES INSUMOS(id_insumo)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_insumo) REFERENCES INSUMOS(id)
 );
 
-CREATE TABLE HISTORIAL_CLINICO (
-    id_historial_clinico INT(4) AUTO_INCREMENT,
-    id_mascota INT(4),
-    PRIMARY KEY(id_historial_clinico),
-    FOREIGN KEY(id_mascota) REFERENCES MASCOTAS(id_mascota)
+CREATE TABLE historial_clinico (
+    id INT AUTO_INCREMENT,
+    id_mascota INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_mascota) REFERENCES MASCOTAS(id)
 );
 
-CREATE TABLE HISTORIAL_VACUNAS (
-    id_historial_vacuna INT(4) AUTO_INCREMENT,
-    id_vacuna INT(4),
-    id_historial_clinico INT(4),
+CREATE TABLE historial_vacunas (
+    id INT AUTO_INCREMENT,
+    id_vacuna INT,
+    id_historial_clinico INT,
     fecha_admicion DATE NOT NULL,
     dosis INT(1),
-    PRIMARY KEY(id_historial_vacuna),
-    FOREIGN KEY(id_vacuna) REFERENCES VACUNAS(id_vacuna),
-    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id_historial_clinico)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_vacuna) REFERENCES VACUNAS(id),
+    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id)
 );
 
-CREATE TABLE HISTORIAL_TRATAMIENTOS (
-    id_historial_trat INT(4) AUTO_INCREMENT,
-    id_historial_clinico INT(4),
-    id_tratamiento INT(4),
+CREATE TABLE historial_tratamientos (
+    id INT AUTO_INCREMENT,
+    id_historial_clinico INT,
+    id_tratamiento INT,
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE NOT NULL,
-    PRIMARY KEY(id_historial_trat),
-    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id_historial_clinico),
-    FOREIGN KEY(id_tratamiento) REFERENCES TRATAMIENTOS(id_tratamiento)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id),
+    FOREIGN KEY(id_tratamiento) REFERENCES TRATAMIENTOS(id)
 );
 
-CREATE TABLE HISTORIAL_DIAGNOSTICOS (
-    id_historial_diagnosticos INT(4) AUTO_INCREMENT,
-    id_historial_clinico INT(4),
-    id_diagnostico INT(4),
+CREATE TABLE historial_diagnosticos (
+    id INT AUTO_INCREMENT,
+    id_historial_clinico INT,
+    id_diagnostico INT,
     fecha_diagnostico DATE,
     detalles VARCHAR(400),
-    PRIMARY KEY(id_historial_diagnosticos),
-    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id_historial_clinico),
-    FOREIGN KEY(id_diagnostico) REFERENCES DIAGNOSTICOS(id_diagnostico)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id),
+    FOREIGN KEY(id_diagnostico) REFERENCES DIAGNOSTICOS(id)
 );
 
-CREATE TABLE HISTORIAL_CIRUGIA (
-    id_historial_cirugia INT(4) AUTO_INCREMENT,
+CREATE TABLE historial_cirugia (
+    id INT AUTO_INCREMENT,
     id_historial_clinico INT(4),
-    id_cirugia INT(4),
+    id_cirugia INT,
     fecha_cirugia DATE,
     observaciones VARCHAR(200),
-    PRIMARY KEY(id_historial_cirugia),
-    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id_historial_clinico),
-    FOREIGN KEY(id_cirugia) REFERENCES CIRUGIAS(id_cirugia)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id),
+    FOREIGN KEY(id_cirugia) REFERENCES CIRUGIAS(id)
 );
 
-CREATE TABLE HISTORIAL_ALERGIAS (
-    id_historial_alergias INT(4) AUTO_INCREMENT,
-    id_historial_clinico INT(4),
-    id_alergia INT(4),
+CREATE TABLE historial_alergias (
+    id INT AUTO_INCREMENT,
+    id_historial_clinico INT,
+    id_alergia INT,
     fecha_diagnostico DATE,
     observaciones VARCHAR(200),
-    PRIMARY KEY(id_historial_alergias),
-    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id_historial_clinico),
-    FOREIGN KEY(id_alergia) REFERENCES ALERGIA(id_alergia)
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_historial_clinico) REFERENCES HISTORIAL_CLINICO(id),
+    FOREIGN KEY(id_alergia) REFERENCES ALERGIAS(id)
 );

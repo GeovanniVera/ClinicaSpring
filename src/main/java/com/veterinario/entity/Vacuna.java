@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 public class Vacuna {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_vacuna")
     private int id;
     @Column(name = "id_fabricante")
     private int idFabricante;
@@ -20,7 +19,7 @@ public class Vacuna {
     private int id_insumo;
     private String nombre;
     @Column(name = "dosis_requerida")
-    private int dosisRequerida;
+    private double dosisRequerida;
     public int getId() {
         return id;
     }
@@ -45,11 +44,16 @@ public class Vacuna {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public int getDosisRequerida() {
+    public double getDosisRequerida() {
         return dosisRequerida;
     }
-    public void setDosisRequerida(int dosisRequerida) {
+    public void setDosisRequerida(double dosisRequerida) {
         this.dosisRequerida = dosisRequerida;
+    }
+    @Override
+    public String toString() {
+        return "Vacuna [id=" + id + ", idFabricante=" + idFabricante + ", id_insumo=" + id_insumo + ", nombre=" + nombre
+                + ", dosisRequerida=" + dosisRequerida + "]";
     }
     
 }

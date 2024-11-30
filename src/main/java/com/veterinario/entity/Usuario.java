@@ -1,10 +1,11 @@
 package com.veterinario.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,34 +13,50 @@ import jakarta.persistence.Table;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
     private int id;
-    private String userName;
-    private String password;
+    private String contrasenia;
     private String rol;
 
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getRol() {
-        return rol;
-    }
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
+    @OneToOne
+    @JoinColumn(name ="id_empleado")
+    private Empleado empleado;
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario [id=" + id + ", contrasenia=" + contrasenia + ", rol=" + rol + ", empleado=" + empleado + "]";
+    }
+
+
 }

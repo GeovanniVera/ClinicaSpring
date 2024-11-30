@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_empleado")
     private int id;
     @Column(name = "fecha_de_inicio")
     private String fechaInicio;
@@ -24,7 +23,6 @@ public class Empleado {
     private String apellidoMaterno;
     @Column(name = "cedula_profesional")
     private String cedulaProfesional;
-    private String rol;
     private String estatus;
     @Column(name = "telefono_movil")
     private long telefonoMovil;
@@ -76,12 +74,6 @@ public class Empleado {
     public void setCedulaProfesional(String cedulaProfesional) {
         this.cedulaProfesional = cedulaProfesional;
     }
-    public String getRol() {
-        return rol;
-    }
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
     public String getEstatus() {
         return estatus;
     }
@@ -109,11 +101,11 @@ public class Empleado {
     }
     @Override
     public String toString() {
-        return "Empleado [id=" + id +  ", fechaInicio=" + fechaInicio + ", imagen="
-                + imagen + ", nombre=" + nombre + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno="
-                + apellidoMaterno + ", cedulaProfesional=" + cedulaProfesional + ", rol=" + rol + ", estatus=" + estatus
-                + ", telefonoMovil=" + telefonoMovil + ", telefonoFijo=" + telefonoFijo + ", correoElectronico="
-                + correoElectronico + "]";
+        return "Empleado [id=" + id + ", fechaInicio=" + fechaInicio + ", imagen=" + imagen + ", nombre=" + nombre
+                + ", apellidoPaterno=" + apellidoPaterno + ", apellidoMaterno=" + apellidoMaterno
+                + ", cedulaProfesional=" + cedulaProfesional + ", estatus=" + estatus + ", telefonoMovil="
+                + telefonoMovil + ", telefonoFijo=" + telefonoFijo + ", correoElectronico=" + correoElectronico + "]";
     }
+    
     
 }

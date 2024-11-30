@@ -1,6 +1,7 @@
 package com.veterinario.entity;
 
-import jakarta.persistence.Column;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,25 +13,10 @@ import jakarta.persistence.Table;
 public class Diagnostico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_diagnostico")
     private int id;
     private String nombre;
     private String descripcion;
-    private String fecha_diagnostico;
-    public String getFecha_diagnostico() {
-        return fecha_diagnostico;
-    }
-    public void setFecha_diagnostico(String fecha_diagnostico) {
-        this.fecha_diagnostico = fecha_diagnostico;
-    }
-    public Diagnostico(int id, String nombre, String descripcion, String fecha_diagnostico) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha_diagnostico = fecha_diagnostico;
-    }
-    public Diagnostico() {
-    }
+    private LocalDate fecha_diagnostico;
     public int getId() {
         return id;
     }
@@ -49,9 +35,15 @@ public class Diagnostico {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    public LocalDate getFecha_diagnostico() {
+        return fecha_diagnostico;
+    }
+    public void setFecha_diagnostico(LocalDate fecha_diagnostico) {
+        this.fecha_diagnostico = fecha_diagnostico;
+    }
     @Override
     public String toString() {
-        return "Diagnostico [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+        return "Diagnostico [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha_diagnostico="
+                + fecha_diagnostico + "]";
     }
-    
 }

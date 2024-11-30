@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 public class Tratamiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tratamiento")
     private int id;
     private String nombre;
     private String descripcion;
@@ -41,6 +40,11 @@ public class Tratamiento {
     }
     public void setDiasDuracion(int diasDuracion) {
         this.diasDuracion = diasDuracion;
+    }
+    @Override
+    public String toString() {
+        return "Tratamiento [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", diasDuracion="
+                + diasDuracion + "]";
     }
     
     

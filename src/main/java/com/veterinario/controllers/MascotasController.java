@@ -13,7 +13,6 @@ import com.veterinario.entity.Mascota;
 import com.veterinario.services.InMascotasServices;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 

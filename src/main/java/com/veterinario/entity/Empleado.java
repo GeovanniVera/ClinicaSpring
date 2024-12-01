@@ -1,5 +1,7 @@
 package com.veterinario.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "fecha_de_inicio")
-    private String fechaInicio;
+    private LocalDate fechaInicio;
     private String imagen = "empleado.jpg";
     private String nombre;
     @Column(name = "apellido_materno")
@@ -37,13 +39,7 @@ public class Empleado {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getFechaInicio() {
-        return fechaInicio;
-    }
-    public void setFechaInicio(String fechaInicio) {
-        this.fechaInicio = fechaInicio;
-    }
+    
     public String getImagen() {
         return imagen;
     }
@@ -98,6 +94,12 @@ public class Empleado {
     }
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+    public LocalDate getFechaInicio() {
+        return fechaInicio;
+    }
+    public void setFechaInicio(LocalDate fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
     @Override
     public String toString() {

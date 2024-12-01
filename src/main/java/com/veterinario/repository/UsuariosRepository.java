@@ -7,5 +7,5 @@ import com.veterinario.entity.Usuario;
 
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuario, Integer>{
-    Usuario findByUserName(String userName);
+    
 }

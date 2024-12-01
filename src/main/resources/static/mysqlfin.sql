@@ -1,6 +1,6 @@
-CREATE DATABASE mipeqeuniajungla;
+CREATE DATABASE mipequeniajungla;
 
-USE mipeqeuniajungla;
+USE mipequeniajungla;
 
 CREATE TABLE clientes (
     id INT AUTO_INCREMENT,

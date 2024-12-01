@@ -55,6 +55,10 @@
                     <div class="col-header">Eliminar</div>
                     <div class="col-contenido"><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
+            </div>
+            <div class="fila" th:if="${fabricantes.size() == 0}">
+                    No hay fabricantes registradas
+            </tr>
 
             </div>
             <!-- Fin de la fila mobile -->

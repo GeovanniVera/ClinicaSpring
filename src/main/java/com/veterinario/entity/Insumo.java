@@ -15,6 +15,7 @@ public class Insumo {
     private String nombre;
     private String descripcion;
     private String tipo;
+    
     public Insumo(int id, String nombre, String descripcion, String tipo) {
         this.id = id;
         this.nombre = nombre;

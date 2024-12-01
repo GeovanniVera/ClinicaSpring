@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
-<!-- <head th:insert="~{fragmentos/head::head}"> -->
+    <html lang="es">
+        <head th:insert="~{fragmentos/head::head}"> 
     <!--Head fragment-->
-</head>
-<body>
+        </head>
+    <body>
     <!-- Menu -->
     <div class="" th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
@@ -16,20 +16,23 @@
     <div class="container">
         <div class="container">
             <h3 class="text-center text-uppercase my-3"> Insumo </h3>
-            <form action="lista-insumos.html" class="container">
+            <form th:action="@{/insumos/guardar}" class="container" method="post" th:object="${insumo}">
+                <input type="hidden" th:field="*{id}">
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label>Nombre</label>
-                        <input type="text" required class="form-control">
+                        <input name="nombre" type="text" required class="form-control" th:field="*{nombre}">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="">Tipo</label>
-                        <select name="" id="" class="form-control">
-                            <option value="">Instrumento</option>
-                            <option value="">Medicamento</option>
+                        <select name="tipo" id="tipo" class="form-select" th:field="*{tipo}">
+                            <option value="" disabled selected>---Selecciona el tipo---</option>
+                            <option value="instrumento">Instrumento</option>
+                            <option value="medicamento">Medicamento</option>
+                            <option value="vacuna">Vacuna</option>
                         </select>
                     </div>
                 </div>
@@ -39,7 +42,7 @@
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label>Descripcion</label>
-                        <input type="text"  class="form-control">
+                        <textarea name="descripcion" type="text"  class="form-control" th:field="*{descripcion}"></textarea>
                     </div>
                 </div>
                 <!-- Fin f2 -->
@@ -49,7 +52,7 @@
                         <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
                     </div>
                     <div class="col-12 col-md-3 col-lg-2 my-3">
-                        <button  id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</button>
+                        <a th:onclick="|window.location='@{/insumos/}'|" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
                     </div>
                 </div>
             </form>

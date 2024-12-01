@@ -32,8 +32,8 @@
                     <td th:text="${diagnostico.nombre}"></td>
                     <td th:text="${diagnostico.descripcion}"></td>
                     <td th:text="${diagnostico.fecha_diagnostico}"></td>
-                    <td><a th:href="@{/diagnosticos/buscar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><a th:href="@{/diagnosticos/eliminar(idDiagnostico=${diagnostico.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                    <td><a th:href="@{/diagnosticos/actualizar(id=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/diagnosticos/eliminar(id=${diagnostico.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
                 <tr th:if="${diagnosticos.size() == 0}">
                     <td colspan="5">No hay diagnosticos registradas.</td>
@@ -61,13 +61,18 @@
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="form-servicio.html"><i class="fa-solid fa-pencil pencil"></i></a></div>
+                    <div class="col-contenido"><a th:href="@{/diagnosticos/actualizar(id=${diagnostico.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"> <a href=""><i class="fa-solid fa-trash trash"> </i> </a></div>
+                    <div class="col-contenido"> <a th:href="@{/diagnosticos/eliminar(id=${diagnostico.id})}"><i class="fa-solid fa-trash trash"> </i> </a></div>
                 </div>
 
+            </div>
+            <div class="fila" th:if="${diagnosticos.size() == 0}">
+                <div class="col-header">
+                    No hay Empleados Registrados
+                </div>
             </div>
             <!-- Fin de la fila mobile -->
         </div>

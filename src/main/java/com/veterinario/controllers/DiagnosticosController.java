@@ -42,15 +42,15 @@ public class DiagnosticosController {
     }
 
     @GetMapping("/eliminar")
-    public String eliminarDiagnostico(@RequestParam("idDiagnostico") int idDiagnostico){
-        serviceDiagnostico.eliminarDiagnostico(idDiagnostico);
+    public String eliminarDiagnostico(@RequestParam("id") int id){
+        serviceDiagnostico.eliminarDiagnostico(id);
         return "redirect:/diagnosticos/";
     }
 
-    @GetMapping("/buscar")
-    public String buscarDiagnostico(@RequestParam("idDiagnostico") int idDiagnostico, Model model) {
-        Diagnostico diagnostico = serviceDiagnostico.buscarPorId(idDiagnostico);
-        model.addAttribute("diagnosticos", diagnostico);
+    @GetMapping("/actualizar")
+    public String buscarDiagnostico(@RequestParam("id") int id, Model model) {
+        Diagnostico diagnostico = serviceDiagnostico.buscarPorId(id);
+        model.addAttribute("diagnostico", diagnostico);
         return new String("diagnosticos/form-diagnostico");
     }
     

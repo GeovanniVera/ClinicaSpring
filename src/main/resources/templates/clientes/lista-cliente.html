@@ -28,7 +28,7 @@
                     <th>Correo Electronico</th>
                     <th>Direccion</th>
                     <th>Estado</th>
-                    <th colspan="2">Operaciones</th>
+                    <th colspan="1">Operaciones</th>
                 </tr>
                 <tr th:if="${clientes.size() == 0}">
                     <td colspan="10">No hay clientes registradas.</td>
@@ -46,7 +46,6 @@
                     <td th:text="${cliente.calle + ' ' + cliente.numero + ', ' + cliente.colonia + ' (' + cliente.codigoPostal + ')'}"></td>
                     <td th:text="${cliente.estatus}">Activo</td>
                     <td><a th:href="@{/clientes/actualizar(id=${cliente.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><a th:href="@{/clientes/eliminar(id=${cliente.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
                 
             </tbody>
@@ -96,9 +95,10 @@
                     <div class="col-contenido"><a th:href="@{/clientes/actualizar(id=${cliente.id})}"><i
                                 class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
-                <div class="columna">
-                    <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><a th:href="@{/clientes/eliminar(id=${cliente.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
+            </div>
+            <div class="fila" th:if="${clientes.size() == 0}">
+                <div class="col-header">
+                    No hay Clientes Registrados
                 </div>
             </div>
             <!-- Fin de la fila mobile -->

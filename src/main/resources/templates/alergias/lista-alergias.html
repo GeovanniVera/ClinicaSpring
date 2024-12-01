@@ -61,7 +61,11 @@
                     <div class="col-header">Eliminar</div>
                     <div class="col-contenido"><a th:href="@{/alergias/eliminar(id=${alergia.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
-
+            </div>
+            <div class="fila" th:if="${alergias.size() == 0}">
+                <div class="col-header">
+                    No hay Alergias Registrados
+                </div>
             </div>
             <!-- Fin de la fila mobile -->
         </div>

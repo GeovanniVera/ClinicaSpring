@@ -5,17 +5,17 @@
 </head>
 <body>
     <!-- Menu -->
-    <div class="" th:insert="~{fragmentos/menu::menu-principal}">
+    <div  th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
-     </div>
+    </div>
     <!-- header -->
     <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
         <!-- fragmento de header-->
     </header>
     <!-- Contenido Index -->
     <div class=" container">
-        <h2>Fabricantes</h2>
-        <a href="form-diagnostico.html" class="btn btn-outline-success my-3">Agregar</a>
+        <h2 class="my-3">Fabricantes</h2>
+        <a th:href="@{/fabricantes/agregar}" class="btn btn-success my-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center">
             <thead class="table-dark">
                 <tr>
@@ -25,33 +25,35 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="fabricante : ${fabricantes}"></tr>
-                <td th:text="${fabricante.id}">001</td>
-                <td th:text="${fabricante.nombre}"></td>
-                    <td><a href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"></a><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="fabricante : ${fabricantes}">
+                    <td th:text="${fabricante.id}"></td>
+                    <td th:text="${fabricante.nombre}"></td>
+                    <td><a th:href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                </tr>
+                <tr th:if="${fabricantes.size() == 0}">
+                    <td colspan="12">No hay fabricantes registradas.</td>
                 </tr>
             </tbody>
         </table>
         <div class="table-mobile">
             <!-- Inicio de la fila mobile -->
-            <div class="fila">
+            <div class="fila" th:each="fabricante : ${fabricantes}">
                 <div class="columna">
                     <div class="col-header">id</div>
-                    <div class="col-contenido"></div>
+                    <div class="col-contenido" th:text="${fabricante.id}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Nombre</div>
-                    <div class="col-contenido"></div>
+                    <div class="col-contenido" th:text="${fabricante.nombre}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href=""><i
-                                class="fa-solid fa-pencil pencil"></i></a></div>
+                    <div class="col-contenido"><a th:href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
+                    <div class="col-contenido"><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
 
             </div>

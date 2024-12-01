@@ -27,9 +27,9 @@
                     <th>Raza</th>
                     <th>Sexo</th>
                     <th>Color</th>
-                    <th>Edad</th>
-                    <th>Talla</th>
-                    <th>Peso</th>
+                    <th>fecha de nacimiento</th>
+                    <th>Talla (cm)</th>
+                    <th>Peso (kg)</th>
                     <th>Dueño</th>
                     <th colspan="2">Operaciones</th>
                 </tr>
@@ -44,7 +44,7 @@
                     <td th:text="${mascota.raza}"></td>
                     <td th:text="${mascota.sexo}"></td>
                     <td th:text="${mascota.color}"></td>
-                    <td th:text="${mascota.fechaDeNacimiento + 'Años'}"></td>
+                    <td th:text="${mascota.fechaDeNacimiento}"></td>
                     <td th:text="${mascota.talla}"></td>
                     <td th:text="${mascota.peso}"></td>
                     <td th:text="${mascota.cliente.nombre}"></td>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="columna">
                     <div class="col-header">edad</div>
-                    <div class="col-contenido" th:text="${mascota.fechaDeNacimiento}">6 años</div>
+                    <div class="col-contenido" th:text="${mascota.fechaDeNacimiento}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">talla</div>

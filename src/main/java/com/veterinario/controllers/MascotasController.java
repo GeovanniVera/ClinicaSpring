@@ -53,6 +53,8 @@ public class MascotasController {
     @GetMapping("/actualizar")
     public String actualizar(@RequestParam("id") int idMascota, Model model) {
         Mascota mascota = servicesMascotas.buscarPorId(idMascota);
+        List<Cliente> clientes = servicesCliente.obtenerClientes();
+        model.addAttribute("clientes", clientes);
         model.addAttribute("mascota", mascota);
         return new String("mascotas/form-mascota");
     }

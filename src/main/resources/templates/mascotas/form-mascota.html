@@ -116,7 +116,7 @@
                         <select name="cliente" id="cliente" class="form-select">
                             <option disabled selected>--Seleccionar Dueño--</option>
                             <option th:each="cliente : ${clientes}"
-                            th:text="${cliente.nombre}"
+                            th:text="${cliente.correoElectronico}"
                             th:value="${cliente.id}" ></option>
                         </select>
                     </div>

@@ -30,7 +30,7 @@ public class Cliente {
     private String calle;
     private String colonia;
     @Column(name = "codigo_postal")
-    private long codigoPostal;
+    private String codigoPostal;
     public int getId() {
         return id;
     }
@@ -101,10 +101,10 @@ public class Cliente {
     public void setColonia(String colonia) {
         this.colonia = colonia;
     }
-    public long getCodigoPostal() {
+    public String getCodigoPostal() {
         return codigoPostal;
     }
-    public void setCodigoPostal(long codigoPostal) {
+    public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
     @Override

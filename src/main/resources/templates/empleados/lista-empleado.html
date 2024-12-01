@@ -26,7 +26,6 @@
                     <th>Nombre</th>
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
-                    <th>Rol</th>
                     <th>Fecha Inicio</th>
                     <th>Telefono Movil</th>
                     <th>Contacto Emergencia</th>
@@ -42,7 +41,6 @@
                     <td th:text="${empleado.nombre}">Edgar</td>
                     <td th:text="${empleado.apellidoPaterno}">delgado</td>
                     <td th:text="${empleado.apellidoMaterno}">Estrella</td>
-                    <td th:text="${empleado.rol}">Veterinario</td> 
                     <td th:text="${empleado.fechaInicio}">15/05/2023</td>                   
                     <td th:text="${empleado.telefonoMovil}">5529459032</td>
                     <td th:text="${empleado.telefonoFijo}">57294590</td>
@@ -79,10 +77,6 @@
                 <div class="columna">
                     <div class="col-header">Apellido Materno</div>
                     <div class="col-contenido" th:text="${empleado.apellidoMaterno}"> Estrella</div>
-                </div>
-                <div class="columna">
-                    <div class="col-header">rol</div>
-                    <div class="col-contenido" th:text="${empleado.rol}">Veterinario</div>
                 </div>
                 <div class="columna">
                     <div class="col-header">fecha de inicio</div>

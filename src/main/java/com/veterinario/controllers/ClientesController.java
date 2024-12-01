@@ -37,7 +37,8 @@ public class ClientesController {
     }
 
     @PostMapping("/guardar")
-    public String postMethodName(Cliente cliente) {
+    public String guardar(Cliente cliente) {
+        
         serviceCliente.guardarCliente(cliente);
         return new String("redirect:/clientes/");
     }

@@ -77,17 +77,18 @@ public class Empleado {
         this.estatus = estatus;
     }
     
-    public long getTelefonoMovil() {
-        return telefonoMovil;
+    public String getTelefonoMovil() {
+        return String.valueOf(telefonoMovil);
     }
-    public void setTelefonoMovil(long telefonoMovil) {
-        this.telefonoMovil = telefonoMovil;
+    public void setTelefonoMovil(String telefonoMovil) {
+        this.telefonoMovil = Long.parseLong(telefonoMovil);
     }
-    public long getTelefonoFijo() {
-        return telefonoFijo;
+    public String getTelefonoFijo() {
+        return String.valueOf(telefonoFijo);
+        
     }
-    public void setTelefonoFijo(long telefonoFijo) {
-        this.telefonoFijo = telefonoFijo;
+    public void setTelefonoFijo(String telefonoFijo) {
+        this.telefonoFijo = Long.parseLong(telefonoFijo);
     }
     public String getCorreoElectronico() {
         return correoElectronico;

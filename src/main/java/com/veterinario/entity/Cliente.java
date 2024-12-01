@@ -61,17 +61,21 @@ public class Cliente {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-    public long getTelefonoMovil() {
-        return telefonoMovil;
+    public String getTelefonoMovil() {
+        return String.valueOf(telefonoMovil);
     }
-    public void setTelefonoMovil(long telefonoMovil) {
-        this.telefonoMovil = telefonoMovil;
+    public void setTelefonoMovil(String telefonoMovil) {
+        if(telefonoMovil != null && !telefonoMovil.isEmpty()){
+            this.telefonoMovil = Long.parseLong(telefonoMovil);
+        }
     }
-    public long getTelefonoFijo() {
-        return telefonoFijo;
+    public String getTelefonoFijo() {
+        return String.valueOf(telefonoFijo);
     }
-    public void setTelefonoFijo(long telefonoFijo) {
-        this.telefonoFijo = telefonoFijo;
+    public void setTelefonoFijo(String telefonoFijo) {
+        if(telefonoFijo != null && !telefonoFijo.isEmpty()){
+            this.telefonoFijo = Long.parseLong(telefonoFijo);
+        }
     }
     public String getCorreoElectronico() {
         return correoElectronico;

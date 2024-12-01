@@ -15,24 +15,25 @@
     <!-- Contenido container Usuario -->
     <div class="container">
         <div class="container container-container my-5">
-            <form th:action="@{/cirugias/guardar}" class="container" method="post">
+            <form th:action="@{/cirugias/guardar}" class="container" method="post" th:object="${cirugia}">
                 <h3 class="text-center text-uppercase my-5">Cirugia</h3>
                 <!-- Fila 1 -->
                 <div class="row">
+                    <input type="hidden" th:field="*{id}">
                     <!-- columna 1 -->
-                    <div class="col-12 col-md-6  col-md-6 my-3">
-                        <label for="nombre" class="label-form">Nombre</label>
-                        <input type="text" required class="form-control" name="nombre" placeholder="nombre de la cirugia">
+                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                        <label for="precio" class="label-form">Nombre</label>
+                        <input type="text" required class="form-control" name="nombre" placeholder="Nombre de la cirugia" th:field="*{nombre}">
                     </div>
                     <div class="col-12 col-md-6  col-md-6 my-3">
                         <label for="precio" class="label-form">Precio</label>
-                        <input type="number" step="0.01" required class="form-control" name="precio" placeholder="Precio de la cirugia" id="precio">
+                        <input type="number" step="0.01" required class="form-control" name="precio" placeholder="Precio de la cirugia" id="precio" th:field="*{precio}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-6 my-3">
                         <label for="detalles" class="label-form">Detalles</label>
-                        <textarea name="detalles" id="detalles" class="form-control"></textarea>
+                        <textarea name="detalles" id="detalles" class="form-control" th:field="*{detalles}"></textarea>
                     </div>
                 </div>
                 <div class="row">

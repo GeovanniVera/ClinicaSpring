@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.veterinario.entity.Cliente;
 import com.veterinario.entity.Mascota;
+import com.veterinario.services.InClienteServices;
 import com.veterinario.services.InMascotasServices;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/mascotas")
 public class MascotasController {
     @Autowired
-    InMascotasServices servicesMascotas;
+    private InMascotasServices servicesMascotas;
+
+    @Autowired
+    private InClienteServices servicesCliente;
+
     @GetMapping("/")
     public String listaMascota(Model model){
         List<Mascota> lista = servicesMascotas.obtenerMascota();
@@ -30,8 +36,11 @@ public class MascotasController {
         model.addAttribute("mascotas", lista);
         return new String("mascotas/lista-mascota");
     }
+
     @GetMapping("/agregar")
-    public String agregarMascota(){
+    public String agregarMascota(Mascota mascota, Model model){
+        List<Cliente> clientes = servicesCliente.obtenerClientes();
+        model.addAttribute("clientes", clientes);
         return new String("mascotas/form-mascota");
     }
 
@@ -45,7 +54,7 @@ public class MascotasController {
     public String actualizar(@RequestParam("id") int idMascota, Model model) {
         Mascota mascota = servicesMascotas.buscarPorId(idMascota);
         model.addAttribute("mascota", mascota);
-        return new String("mascotas/form-update-mascota");
+        return new String("mascotas/form-mascota");
     }
     
     @PostMapping("/guardar")

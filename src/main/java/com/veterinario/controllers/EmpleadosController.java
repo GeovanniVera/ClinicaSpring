@@ -28,7 +28,7 @@ public class EmpleadosController {
     };
     
     @GetMapping("/agregar")
-    public String agregarEmpleado(){
+    public String agregarEmpleado(Empleado empleado){
         return "empleados/form-empleado";
     };
 
@@ -48,7 +48,7 @@ public class EmpleadosController {
     public String actualizar(@RequestParam("id") int idEmpleado, Model model) {
         Empleado empleado = serviceEmpleado.buscarPorId(idEmpleado);
         model.addAttribute("empleado", empleado);
-        return new String("empleados/form-update-empleado");
+        return new String("empleados/form-empleado");
     }
     
 }

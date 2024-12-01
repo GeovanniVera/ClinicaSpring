@@ -33,14 +33,14 @@ public class CirugiasController {
     }    
 
     @GetMapping("/agregar")
-    public String agregar() {
+    public String agregar(Cirugia cirugia) {
         return new String("cirugias/form-cirugia");
     }
     @GetMapping("/actualizar")
     public String getMethodName(@RequestParam ("id") int idCirugia, Model model) {
         Cirugia cirugia = serviceCirugia.buscarPorId(idCirugia);
         model.addAttribute("cirugia", cirugia);
-        return new String("cirugias/form-update-cirugia");
+        return new String("cirugias/form-cirugia");
     }
     
     @GetMapping("/eliminar")

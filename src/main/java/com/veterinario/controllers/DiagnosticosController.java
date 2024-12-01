@@ -31,7 +31,7 @@ public class DiagnosticosController {
     }
 
     @GetMapping("/agregar")
-    public String agregarDiagnostico(){
+    public String agregarDiagnostico(Diagnostico diagnostico){
         return new String("diagnosticos/form-diagnostico");
     }
 
@@ -51,7 +51,7 @@ public class DiagnosticosController {
     public String buscarDiagnostico(@RequestParam("idDiagnostico") int idDiagnostico, Model model) {
         Diagnostico diagnostico = serviceDiagnostico.buscarPorId(idDiagnostico);
         model.addAttribute("diagnosticos", diagnostico);
-        return new String("diagnosticos/form-update-diagnostico");
+        return new String("diagnosticos/form-diagnostico");
     }
     
 

@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head th:insert="~{fragmentos/head::head}">
     <!--Head fragment-->
 </head>
-
 <body>
     <!-- Menu -->
     <div class="" th:insert="~{fragmentos/menu::menu-principal}">
         <!-- Fragmento de menu -->
-    </div>
+     </div>
     <!-- header -->
     <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
         <!-- fragmento de header-->
@@ -17,22 +15,24 @@
     <!-- Contenido container Usuario -->
     <div class="container">
         <div class="container container-container">
-            <form th:action="@{/mascotas/guardar}" class="container" method="post">
+            <form th:action="@{/mascotas/guardar}" class="container" method="post" th:object="${mascota}">
                 <h3 class="text-center text-uppercase my-3">Datos de la mascota</h3>
                 <!-- Fila 1 -->
+                <div class="row">
+                    <input type="hidden" th:field="*{id}">
+                </div>
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="nombre">Nombre</label>
-                        <input type="text" required class="form-control" name="nombre"
-                            placeholder="Nombre de al mascota">
+                        <input type="text" required class="form-control" name="nombre" placeholder="Nombre de al mascota" th:field="*{nombre}">
                     </div>
 
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="tipo">Tipo</label>
                         <!-- <input type="text" required> -->
-                        <select name="tipo" id="tipo" class="form-control">
+                        <select name="tipo" id="tipo" class="form-control" th:field="*{tipo}">
                             <option value="gato">Gato</option>
                             <option value="perro">Perro</option>
                             <option value="tortuga">Tortuga</option>
@@ -48,7 +48,7 @@
                     <div class="col-12 col-md-6 my-3">
                         <label for="raza">Raza</label>
                         <!-- -<se type="text" required> -->
-                        <select name="raza" id="raza" class="form-control">
+                        <select name="raza" id="raza" class="form-control" th:field="*{raza}">
                             <option value="chihuahua">chihuahua</option>
                             <option value="labrador">labrador</option>
                             <option value="pug">Pug</option>
@@ -60,7 +60,7 @@
                     <div class="col-12 col-md-6 my-3 ">
                         <label for="sexo">Sexo</label>
                         <!-- <input type="text" required> -->
-                        <select name="sexo" id="sexo" class="form-control">
+                        <select name="sexo" id="sexo" class="form-control" th:field="*{sexo}">
                             <option value="macho">Macho</option>
                             <option value="hembra">Hembra</option>
                         </select>
@@ -72,28 +72,26 @@
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="color">Color</label>
-                        <input type="text" required class="form-control" name="color" id="color" placeholder="color">
+                        <input type="text" required class="form-control" name="color" id="color" placeholder="color" th:field="*{color}">
 
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
-                        <input type="date" required class="form-control" name="fechaDeNacimiento"
-                            id="fechaDeNacimiento">
+                        <input type="date" required class="form-control" name="fechaDeNacimiento" id="fechaDeNacimiento" th:field="*{fechaDeNacimiento}">
                     </div>
                 </div>
                 <div class="row">
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="talla">Talla</label>
-                        <input type="number" step="0.01" required class="form-control" name="talla" id="talla"
-                            placeholder="talla">
+                        <input type="number" step="0.01" required class="form-control" name="talla" id="talla" placeholder="talla" th:field="*{talla}">
 
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="peso">Peso</label>
-                        <input type="number" step="0.01" required class="form-control" name="peso" id="peso">
+                        <input type="number" step="0.01" required class="form-control" name="peso" id="peso" th:field="*{peso}">
 
                     </div>
                 </div>
@@ -101,7 +99,7 @@
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-6 my-3">
                         <label for="imagen">Imagen</label>
-                        <input type="file" class="form-control" name="imagen" id="imagen">
+                        <input type="file"  class="form-control" name="imagen" id="imagen" th:field="*{imagen}">
                     </div>
                     <div class="col-12 col-md-6 my-3">
                         <label for="estatus">Estatus</label>
@@ -112,7 +110,17 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="col-12 col-md-12 my-3">
+                        <label for="estatus">Dueño de la Mascota</label>
+                        <select name="cliente" id="cliente" class="form-select">
+                            <option disabled selected>--Seleccionar Dueño--</option>
+                            <option th:each="cliente : ${clientes}"
+                            th:text="${cliente.nombre}"
+                            th:value="${cliente.id}" ></option>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <!-- Columna 1 -->
                     <div class="col-12 col-md-3 col-lg-2 my-3">
@@ -120,10 +128,10 @@
                             class="form-control btn btn-success text-uppercase">
                     </div>
                     <div class="col-12 col-md-3 col-lg-2 my-3">
-                        <button class="form-control btn btn-danger text-uppercase"
-                            th:onclick="|window.location='@{/mascotas/}'|">Cancelar</button>
+                        <button class="form-control btn btn-danger text-uppercase" th:onclick="|window.location='@{/mascotas/}'|">Cancelar</button>
                     </div>
                 </div>
+                
             </form>
         </div>
     </div>

@@ -31,8 +31,9 @@ public class ClientesController {
         model.addAttribute("clientes", lista);
         return new String("clientes/lista-cliente");
     } 
+    
     @GetMapping("/agregar")
-    public String agregar(){
+    public String agregar(Cliente cliente){
         return new String("clientes/form-cliente");
     }
 
@@ -53,7 +54,7 @@ public class ClientesController {
     public String actualizar(@RequestParam("id") int idCliente, Model model) {
         Cliente cliente = serviceCliente.buscarPorId(idCliente);
         model.addAttribute("cliente", cliente);
-        return new String("clientes/form-update-cliente");
+        return new String("clientes/form-cliente");
     }
     
     

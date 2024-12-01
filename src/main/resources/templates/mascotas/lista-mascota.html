@@ -25,32 +25,34 @@
                     <th>Nombre</th>
                     <th>Tipo</th>
                     <th>Raza</th>
-                    <th>sexo</th>
-                    <th>color</th>
-                    <th>edad</th>
-                    <th>talla</th>
-                    <th>peso</th>
+                    <th>Sexo</th>
+                    <th>Color</th>
+                    <th>Edad</th>
+                    <th>Talla</th>
+                    <th>Peso</th>
+                    <th>Dueño</th>
                     <th colspan="2">Operaciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="mascota : ${mascotas}">
-                    <td th:text="${mascota.id}">001</td>
+                    <td th:text="${mascota.id}"></td>
                     <td th:text="${mascota.estatus}"></td>
                     <td th:text="${mascota.imagen}"></td>
-                    <td th:text="${mascota.nombre}">Manchas</td>
-                    <td th:text="${mascota.tipo}">cachorro</td>
-                    <td th:text="${mascota.raza}">Pastor aleman</td>
-                    <td th:text="${mascota.sexo}">Macho</td>
-                    <td th:text="${mascota.color}">cafe</td>
-                    <td th:text="${mascota.fechaDeNacimiento + 'Años'}">6 Años</td>
-                    <td th:text="${mascota.talla}">Grande</td>
-                    <td th:text="${mascota.peso}">10kg</td>
+                    <td th:text="${mascota.nombre}"></td>
+                    <td th:text="${mascota.tipo}"></td>
+                    <td th:text="${mascota.raza}"></td>
+                    <td th:text="${mascota.sexo}"></td>
+                    <td th:text="${mascota.color}"></td>
+                    <td th:text="${mascota.fechaDeNacimiento + 'Años'}"></td>
+                    <td th:text="${mascota.talla}"></td>
+                    <td th:text="${mascota.peso}"></td>
+                    <td th:text="${mascota.cliente.nombre}"></td>
                     <td><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td><a th:href="@{/mascotas/eliminar(id=${mascota.id})}"><i class="fa-solid fa-trash trash"></a></i></td>
                 </tr>
                 <tr th:if="${mascotas.size() == 0}">
-                    <td colspan="4">No hay mascotas registradas.</td>
+                    <td colspan="12">No hay mascotas registradas.</td>
                 </tr>
             </tbody>
         </table>

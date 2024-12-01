@@ -48,9 +48,5 @@ public class Cirugia {
     public void setDetalles(String detalles) {
         this.detalles = detalles;
     }
-    @Override
-    public String toString() {
-        return "Cirugia [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", detalles=" + detalles + "]";
-    }
     
 }

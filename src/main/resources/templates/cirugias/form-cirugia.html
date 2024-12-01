@@ -20,8 +20,19 @@
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
-                    <div class="col-12 col-md-6 my-32 col-md-6 my-3">
+                    <div class="col-12 col-md-6  col-md-6 my-3">
+                        <label for="nombre" class="label-form">Nombre</label>
                         <input type="text" required class="form-control" name="nombre" placeholder="nombre de la cirugia">
+                    </div>
+                    <div class="col-12 col-md-6  col-md-6 my-3">
+                        <label for="precio" class="label-form">Precio</label>
+                        <input type="number" step="0.01" required class="form-control" name="precio" placeholder="Precio de la cirugia" id="precio">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 my-3">
+                        <label for="detalles" class="label-form">Detalles</label>
+                        <textarea name="detalles" id="detalles" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="row">

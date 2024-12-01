@@ -21,13 +21,14 @@ CREATE TABLE clientes (
 CREATE TABLE mascotas (
     id INT AUTO_INCREMENT,
     id_cliente INT(4),
+    imagen VARCHAR(200),
     nombre VARCHAR(50),
     tipo VARCHAR(40),
     raza VARCHAR(50),
     sexo VARCHAR(12),
     color VARCHAR(15),
     fecha_de_nacimiento DATE,
-    talla DECIMAL(4, 2),
+    talla DECIMAL(10, 2),
     peso DECIMAL(4, 2),
     estatus VARCHAR(50),
     PRIMARY KEY(id),
@@ -145,6 +146,8 @@ CREATE TABLE vacunas (
 CREATE TABLE cirugias (
     id INT AUTO_INCREMENT,
     nombre VARCHAR(50),
+    detalles text,
+    precio DECIMAL(10,2),
     PRIMARY KEY(id)
 );
 

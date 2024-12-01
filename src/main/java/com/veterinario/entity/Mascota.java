@@ -17,11 +17,9 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
     @OneToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
-    
     private String nombre;
     private String imagen;
     private String tipo;
@@ -29,28 +27,10 @@ public class Mascota {
     private String sexo;
     private String color;
     @Column(name = "fecha_de_nacimiento")
-    private LocalDate fechadenacimiento;
+    private LocalDate fechaDeNacimiento;
     private double talla;
     private double peso;
     private String estatus;
-
-    public Mascota(int id, Cliente cliente, String nombre, String imagen, String tipo, String raza, String sexo,
-            String color, LocalDate fechadenacimiento, double talla, double peso, String estatus) {
-        this.id = id;
-        this.cliente = cliente;
-        this.nombre = nombre;
-        this.imagen = imagen;
-        this.tipo = tipo;
-        this.raza = raza;
-        this.sexo = sexo;
-        this.color = color;
-        this.fechadenacimiento = fechadenacimiento;
-        this.talla = talla;
-        this.peso = peso;
-        this.estatus = estatus;
-    }
-    public Mascota() {
-    }
     public int getId() {
         return id;
     }
@@ -99,11 +79,11 @@ public class Mascota {
     public void setColor(String color) {
         this.color = color;
     }
-    public LocalDate getFechadenacimiento() {
-        return fechadenacimiento;
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
     }
-    public void setFechadenacimiento(LocalDate fechadenacimiento) {
-        this.fechadenacimiento = fechadenacimiento;
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
     public double getTalla() {
         return talla;
@@ -126,8 +106,7 @@ public class Mascota {
     @Override
     public String toString() {
         return "Mascota [id=" + id + ", cliente=" + cliente + ", nombre=" + nombre + ", imagen=" + imagen + ", tipo="
-                + tipo + ", raza=" + raza + ", sexo=" + sexo + ", color=" + color + ", fechadenacimiento="
-                + fechadenacimiento + ", talla=" + talla + ", peso=" + peso + ", estatus=" + estatus + "]";
+                + tipo + ", raza=" + raza + ", sexo=" + sexo + ", color=" + color + ", fechaDeNacimiento="
+                + fechaDeNacimiento + ", talla=" + talla + ", peso=" + peso + ", estatus=" + estatus + "]";
     }
-
 }

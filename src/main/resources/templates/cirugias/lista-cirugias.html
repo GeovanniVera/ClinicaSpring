@@ -21,6 +21,8 @@
                 <tr class="table-dark">
                     <th scope="col">ID</th>
                     <th scope="col">Nombre de la cirugia</th>
+                    <th scope="col">Precio de la cirugia</th>
+                    <th scope="col">Detalles de la cirugia</th>
                     <th colspan="2">Operaciones</th>
                 </tr>
             </thead>
@@ -28,6 +30,8 @@
                 <tr th:each="cirugia : ${cirugias}">
                     <th scope="row" th:text="${cirugia.id}">001</th>
                     <td th:text="${cirugia.nombre}"></td>
+                    <td th:text="${cirugia.precio}"></td>
+                    <td th:text="${cirugia.detalles}"></td>
                     <td><a th:href="@{/cirugias/actualizar(id=${cirugia.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td class="lista__contenido"><a th:href="@{/cirugias/eliminar(id=${cirugia.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
@@ -46,6 +50,14 @@
                 <div class="columna">
                     <div class="col-header">Nombre</div>
                     <div class="col-contenido" th:text="${cirugia.nombre}"></div>
+                </div>
+                <div class="columna">
+                    <div class="col-header">Precio</div>
+                    <div class="col-contenido" th:text="${cirugia.precio}"></div>
+                </div>
+                <div class="columna">
+                    <div class="col-header">Detalles</div>
+                    <div class="col-contenido" th:text="${cirugia.detalles}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>

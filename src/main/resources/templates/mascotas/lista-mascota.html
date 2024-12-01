@@ -43,7 +43,7 @@
                     <td th:text="${mascota.raza}">Pastor aleman</td>
                     <td th:text="${mascota.sexo}">Macho</td>
                     <td th:text="${mascota.color}">cafe</td>
-                    <td th:text="${mascota.fechaDeNacimiento}">6 Años</td>
+                    <td th:text="${mascota.fechaDeNacimiento + 'Años'}">6 Años</td>
                     <td th:text="${mascota.talla}">Grande</td>
                     <td th:text="${mascota.peso}">10kg</td>
                     <td><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>

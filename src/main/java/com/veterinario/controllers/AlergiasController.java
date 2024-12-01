@@ -36,7 +36,7 @@ public class AlergiasController {
     }
 
     @GetMapping("/agregar")
-    public String agregarAlergia(){
+    public String agregarAlergia(Alergia alergia){
         return "alergias/form-alergia";
     }
 
@@ -51,7 +51,7 @@ public class AlergiasController {
     public String actualizarAlergia(@RequestParam("id") int idAlergia, Model model) {
         Alergia alergia = serviceAlergia.buscarPorId(idAlergia);
         model.addAttribute("alergia", alergia);
-        return new String("alergias/form-update-alergias");
+        return new String("alergias/form-alergia");
     }
     
 

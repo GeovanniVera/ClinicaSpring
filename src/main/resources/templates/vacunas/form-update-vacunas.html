@@ -16,16 +16,17 @@
     <div class="container my-5">
         <div class="container container-container">
             <form th:action="@{/vacunas/guardar}" method="post" class="container" th:object="${vacuna}">
-                <h3 class="text-center text-uppercase my-5">Vacuna</h3>
+                <h3 class="text-center text-uppercase my-5">Actualizar Vacuna</h3>
                 <!-- Fila 1 -->
                 <div class="row">
                     <!-- columna 1 -->
+                     <input type="hidden" th:field="*{id}">
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre de la Vacuna">
+                        <input type="text" required class="form-control" id="nombre" name="nombre" placeholder="Nombre de la Vacuna" th:field="*{nombre}">
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="number" required class="form-control" id="costo_unitario" name="costo_unitario" placeholder="Costo Unitario">
+                        <input type="number" required class="form-control" id="costo" name="costo" placeholder="Costo Unitario" th:field="*{costo}">
                     </div>
                 </div>
                 <!-- Fin row -->
@@ -33,16 +34,14 @@
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <label>Tipo de vacuna</label>
-                        <select name="id_insumo" id="id_insumo" class="form-control" aria-placeholder="Tipo de Vacuna">
+                        <select name="tipo_de_vacuna" id="tipo_de_vacuna" class="form-control" aria-placeholder="Tipo de Vacuna" th:field="*{tipo}">
                             <option value="">Tipo 1</option>
                             <option value="">Tipo 2</option>
                         </select>
                     </div>
                     <!-- columna 2 -->
                     <div class="col-12 col-md-6 my-3">
-                        <label>Fabricante</label>
-                        <select name="id_fabricante" id="id_fabricante" class="form-control" aria-placeholder="Fabricante">
+                        <select name="fabricante" id="fabricante" class="form-control" name="fabricante" aria-placeholder="Fabricante" th:field="*{fabricante}">
                             <option value="">Fabricante 1</option>
                             <option value="">Fabricante 2</option>
                         </select>
@@ -52,7 +51,7 @@
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-32 col-md-6 my-3">
-                        <input type="text" class="form-control" id="dosis" name="dosis" placeholder="Dosis">
+                        <input type="text" class="form-control" id="dosis" name="dosis" placeholder="Dosis" th:field="*{dosis}">
                     </div>
                 </div>
                 <div class="row">

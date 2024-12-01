@@ -17,7 +17,7 @@
     <div class=" contenedor__lista container">
         <!--  Inicio de las tablas -->
         <h2>Vacunas</h2>
-        <a href="form-vacunas.html" class="btn btn-success mb-3">Agregar</a>
+        <a th:href="@{/vacunas/agregar}" class="btn btn-success mb-3">Agregar</a>
         <table class="table table-striped table-hover table-hidden table-bordered text-center" >
             <thead>
                 <tr class="table-dark">
@@ -29,13 +29,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>Vacunas SADECV</td>
-                    <td>Rabia</td>
-                    <td>2 ml</td>
-                    <td><a href="form-empleado.html"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><i class="fa-solid fa-trash trash"></i></td>
+                <tr th:each="vacuna:${vacunas}">
+                    <td th:text="${vacuna.id}"></td>
+                    <td th:text="${vacuna.id_fabricante}"></td>
+                    <td th:text="${vacuna.nombre}"></td>
+                    <td th:text="${vacuna.dosis_requerida}"></td>
+                    <td><a th:href="@{/vacunas/buscar(idVacuna=${vacuna.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <td><a th:href="@{/vacunas/eliminar(idVacuna=${vacuna.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
             </tbody>
         </table>

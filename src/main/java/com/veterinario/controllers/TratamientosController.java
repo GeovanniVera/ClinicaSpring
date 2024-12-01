@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.veterinario.entity.Empleado;
 import com.veterinario.entity.Tratamiento;
 import com.veterinario.services.InTratamientosServices;
 
@@ -26,7 +25,7 @@ public class TratamientosController {
         return new String("tratamientos/lista-tratamientos");
     }
     @GetMapping("/agregar")
-    public String agregarTratamientos(){
+    public String agregarTratamientos(Tratamiento tratamiento){
         return new String("tratamientos/form-tratamiento");
     }
     @GetMapping("/eliminar")
@@ -37,8 +36,14 @@ public class TratamientosController {
     @PostMapping("/guardar")
     public String guardar(Tratamiento tratamiento) {
         servicesTratamientos.guardar(tratamiento);
-        return new String("redirect:/Tratamientos/");
+        return new String("redirect:/tratamientos/");
     }
-
+    @GetMapping("/actualizar")
+    public String actualizar(@RequestParam("id") Integer id, Model model ) {
+        Tratamiento tratamiento = servicesTratamientos.buscarPorId(id);
+        model.addAttribute("tratamiento", tratamiento);
+        return new String("tratamientos/form-tratamiento");
+    }
+    
 
 }

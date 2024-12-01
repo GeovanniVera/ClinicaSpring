@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.veterinario.entity.Fabricante;
 import com.veterinario.services.InFabricantesServices;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping("/fabricantes")
 public class FabricantesController {
     @Autowired
-     InFabricantesServices serviceFabricante;
+    InFabricantesServices serviceFabricante;
     
     @GetMapping("/")
     public String listaFabricante(Model model){
@@ -28,7 +30,7 @@ public class FabricantesController {
     };
 
     @GetMapping("/agregar")
-    public String agregarFabricante() {
+    public String agregarFabricante(Fabricante fabricante) {
         return "fabricantes/form-fabricantes";
     }
 
@@ -42,6 +44,13 @@ public class FabricantesController {
     public String actualizar(@RequestParam("id") int idFabricante, Model model) {
         Fabricante fabricante = serviceFabricante.buscarFabricante(idFabricante);
         model.addAttribute("fabricante", fabricante);
-        return new String("fabricantes/form-update-fabricante");
+        return new String("fabricantes/form-fabricantes");
     }
+
+    @PostMapping("/guardar")
+    public String guardar(Fabricante fabricante) {
+        serviceFabricante.guardarFabricante(fabricante);
+        return "redirect:/fabricantes/";
+    }
+    
 }

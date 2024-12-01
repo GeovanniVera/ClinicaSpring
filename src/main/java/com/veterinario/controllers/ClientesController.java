@@ -44,11 +44,6 @@ public class ClientesController {
         return new String("redirect:/clientes/");
     }
 
-    @GetMapping("/eliminar")
-    public String getMethodName(@RequestParam ("id") int idCliente) {
-        serviceCliente.eliminarCliente(idCliente);
-        return new String("redirect:/clientes/");
-    }
     
     @GetMapping("/actualizar")
     public String actualizar(@RequestParam("id") int idCliente, Model model) {

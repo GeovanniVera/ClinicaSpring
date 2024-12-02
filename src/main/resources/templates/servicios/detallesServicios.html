@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:insert="~{fragmentos/head::head}">
+    <!--Head fragment-->
+</head>
+<body>
+    <header class="header" th:insert="~{fragmentos/header-inicio::headerInicio}"></header>
+    <!-- Contenido Index -->
+    <div class="pagina-principal my-3 py-3">
+        <div class="container py-4">
+            <h2 class="my-5">Detalle del Servicio</h2>
+            <div class="card mb-3 mt-1" style="max-width: 90%;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img th:src="@{/img/} + ${servicio.imagen}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${servicio.nombre}"></h5>
+                        <p class="card-text" th:text="${servicio.costoServicio}"></p>
+                        <p class="card-text" th:text="${servicio.descripcion}"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+    <!-- Pie de pagina -->
+    <footer class="footer" th:insert="~{fragmentos/footer::footer}"></footer>
+</body>
+
+</html>

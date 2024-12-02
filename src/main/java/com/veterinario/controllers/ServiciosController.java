@@ -62,5 +62,12 @@ public class ServiciosController {
         model.addAttribute("servicios", lista);
         return new String("servicios/servicios");
     }
+
+    @GetMapping("/detalleServicio")
+    public String mostrarDetalles(@RequestParam("id") int idServicio, Model model) {
+        Servicio servicio = serviceServicio.buscarPorId(idServicio);
+        model.addAttribute("servicio", servicio);
+        return new String("servicios/detallesServicios");
+    }
     
 }

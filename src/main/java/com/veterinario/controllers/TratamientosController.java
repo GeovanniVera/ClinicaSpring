@@ -29,9 +29,9 @@ public class TratamientosController {
         return new String("tratamientos/form-tratamiento");
     }
     @GetMapping("/eliminar")
-    public String eliminar(@RequestParam("id") int idEmpleado) {
-        servicesTratamientos.eliminar(0);
-        return new String("redirect:/empleados/");
+    public String eliminar(@RequestParam("id") int idTratamiento) {
+        servicesTratamientos.eliminar(idTratamiento);
+        return new String("redirect:/tratamientos/");
     }
     @PostMapping("/guardar")
     public String guardar(Tratamiento tratamiento) {

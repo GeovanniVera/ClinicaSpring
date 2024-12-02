@@ -47,12 +47,12 @@
                     <td th:text="${mascota.fechaDeNacimiento}"></td>
                     <td th:text="${mascota.talla}"></td>
                     <td th:text="${mascota.peso}"></td>
-                    <td th:text="${mascota.cliente.nombre}"></td>
+                    <td th:text="${mascota.cliente.correoElectronico}"></td>
                     <td><a th:href="@{/mascotas/actualizar(id=${mascota.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
                     <td><a th:href="@{/mascotas/eliminar(id=${mascota.id})}"><i class="fa-solid fa-trash trash"></a></i></td>
                 </tr>
                 <tr th:if="${mascotas.size() == 0}">
-                    <td colspan="12">No hay mascotas registradas.</td>
+                    <td colspan="13">No hay mascotas registradas.</td>
                 </tr>
             </tbody>
         </table>
@@ -65,6 +65,10 @@
                     <div class="col-contenido" th:text="${mascota.id}">1</div>
                 </div>
                 <div class="columna">
+                    <div class="col-header">Estatus</div>
+                    <div class="col-contenido" th:text="${mascota.estatus}">1</div>
+                </div>
+                <div class="columna">
                     <div class="col-header">imagen</div>
                     <div class="col-contenido" th:text="${mascota.imagen}"></div>
                 </div>
@@ -73,28 +77,36 @@
                     <div class="col-contenido" th:text="${mascota.nombre}">Manchas</div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">tipo</div>
+                    <div class="col-header">Tipo</div>
                     <div class="col-contenido" th:text="${mascota.tipo}">cachorro</div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">raza</div>
-                    <div class="col-contenido" th:text="${mascota.raza}">pastor aleman</div>
+                    <div class="col-header">Raza</div>
+                    <div class="col-contenido" th:text="${mascota.raza}"></div>
+                </div>
+                <div class="columna">
+                    <div class="col-header">Sexo</div>
+                    <div class="col-contenido" th:text="${mascota.sexo}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">color</div>
                     <div class="col-contenido" th:text="${mascota.color}">Cafe</div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">edad</div>
+                    <div class="col-header">Fecha de Nacimiento</div>
                     <div class="col-contenido" th:text="${mascota.fechaDeNacimiento}"></div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">talla</div>
+                    <div class="col-header">Talla (cm)</div>
                     <div class="col-contenido" th:text="${mascota.talla}">Grande</div>
                 </div>
                 <div class="columna">
-                    <div class="col-header">peso</div>
-                    <div class="col-contenido" th:text="${mascota.peso}">53 kg</div>
+                    <div class="col-header">Peso (kg)</div>
+                    <div class="col-contenido" th:text="${mascota.peso}"></div>
+                </div>
+                <div class="columna">
+                    <div class="col-header">Dueño</div>
+                    <div class="col-contenido" th:text="${mascota.cliente.correoElectronico}"></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>

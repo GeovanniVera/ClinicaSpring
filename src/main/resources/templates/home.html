@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:insert="~{fragmentos/head::head}">
+        <!--Head fragment-->
+    </head>
+<body>
+    <!-- Menu -->
+    <div class="" th:insert="~{fragmentos/menu::menu-principal}">
+        <!-- Fragmento de menu -->
+     </div>
+    <!-- header -->
+    <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
+        <!-- fragmento de header-->
+    </header>
+    <!-- Contenido Index -->
+    <div class=" container__lista container">
+        <h2 class="my-3">Bienvenido Usuario Admin</h2>
+    </div>
+    <script th:src="@{/js/menu.js}"></script>
+</body>
+
+</html>

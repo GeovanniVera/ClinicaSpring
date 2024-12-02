@@ -19,7 +19,7 @@ public class Servicio {
     private String descripcion;
     @Column(name = "costo_servicio")
     private double costoServicio;
-    private String imagen = "empleado.jpg";
+    private String imagen = "perro.jpg";
     public int getId() {
         return id;
     }

@@ -14,23 +14,22 @@ public class Inventario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String imagen = "imagen.png"; 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     private String nombre;
     private double costo;
     private int cantidad;
     private String estatus;
-    
     @OneToOne
     @JoinColumn(name = "id_Insumo")
     private Insumo insumo;
-
-    public Inventario(int id, String nombre, double costo, int cantidad, String estatus, Insumo insumo) {
-        this.id = id;
-        this.nombre = nombre;
-        this.costo = costo;
-        this.cantidad = cantidad;
-        this.estatus = estatus;
-        this.insumo = insumo;
-    }
 
     public Inventario() {
     }
@@ -89,6 +88,4 @@ public class Inventario {
                 + ", estatus=" + estatus + ", insumo=" + insumo + "]";
     }
     
-   
-
 }

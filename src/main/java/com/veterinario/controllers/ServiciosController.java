@@ -53,4 +53,15 @@ public class ServiciosController {
         serviceServicio.eliminarServicio(idServicio);
         return new String("redirect:/servicios/");
     }
+
+    @GetMapping("/servicios")
+    public String obtenerServicios(Model model) {
+        List<Servicio> lista = serviceServicio.obtenerServicios();
+        for (Servicio servicio : lista) {
+            System.out.println(servicio);
+        }
+        model.addAttribute("servicios", lista);
+        return new String("servicios/servicios");
+    }
+    
 }

@@ -30,13 +30,12 @@ public class ServiciosController {
     }
 
     @GetMapping("/agregar")
-    public String agregarServicio() {
+    public String agregarServicio(Servicio servicio) {
         return "servicios/form-servicio";
     }
 
     @PostMapping("/guardar")
     public String guardarServicio(Servicio servicio) {
-        System.out.println(servicio);
         serviceServicio.guardarServicio(servicio);
         return new String("redirect:/servicios/");
     }
@@ -45,12 +44,23 @@ public class ServiciosController {
     public String actualizarServicio(@RequestParam("id") int idServicio, Model model) {
         Servicio servicio = serviceServicio.buscarPorId(idServicio);
         model.addAttribute("servicio", servicio);
-        return new String("servicios/form-update-servicio");
+        return new String("servicios/form-servicio");
     }
 
     @GetMapping("/eliminar")
-    public String getMethodName(@RequestParam("id") int idServicio) {
+    public String eliminar(@RequestParam("id") int idServicio) {
         serviceServicio.eliminarServicio(idServicio);
         return new String("redirect:/servicios/");
     }
+
+    @GetMapping("/servicios")
+    public String obtenerServicios(Model model) {
+        List<Servicio> lista = serviceServicio.obtenerServicios();
+        for (Servicio servicio : lista) {
+            System.out.println(servicio);
+        }
+        model.addAttribute("servicios", lista);
+        return new String("servicios/servicios");
+    }
+    
 }

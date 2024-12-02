@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:insert="~{fragmentos/head::head}">
+    <!--Head fragment-->
+</head>
+<body>
+    <header class="header" th:insert="~{fragmentos/header-inicio::headerInicio}"></header>
+    <!-- Contenido Index -->
+    <div class="pagina-principal">
+        <h2 class="text-uppercase text-center my-5" > Nuestros Servicios</h2>
+        <!-- Primera Columna -->
+        <div class="container my-3" >
+            <div class="row my-5">
+                <div class="col-4" th:each="servicio : ${servicios}">
+                    <div class="card" style="width: 18rem;">
+                        <img th:src="@{/img/} + ${servicio.imagen}" class="card-img-top img-fluid rounded-start">
+                        <div class="card-body">
+                          <p class="card-text" th:utext="'Nombre del servicio:<br>' + ${servicio.nombre}"></p>
+                          <p class="card-text" th:utext="'Nombre del servicio:<br>' +  '$' +  ${servicio.costoServicio}"></p>
+                          <a th:href="@{/servicios/detalleServicio(id=${servicio.id})}" class="btn btn-success">Detalles Del Servicio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pie de pagina -->
+    <footer class="footer" th:insert="~{fragmentos/footer::footer}"></footer>
+</body>
+
+</html>

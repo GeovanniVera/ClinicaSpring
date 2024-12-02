@@ -62,13 +62,12 @@
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <td><a th:href="@{/insumo/actualizar(id=${insumo.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
+                    <div class="col-contenido"><a th:href="@{/insumos/actualizar(id=${insumo.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <td><a th:href="@{/insumo/eliminar(id=${insumo.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
+                    <div class="col-contenido"><a th:href="@{/insumos/eliminar(id=${insumo.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
-
             </div>
             <!-- Fin de la fila mobile -->
         </div>

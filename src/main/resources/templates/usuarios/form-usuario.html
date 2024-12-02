@@ -15,32 +15,49 @@
     <!-- Contenido container Usuario -->
     <div class="contenido-container">
         <div class="container container-container">
-            <form action="@{/usuarios/guardar}" method="post"class="container">
-                <h3 class="my-5 text-center text-uppercase">Usuario</h3>
+            <h3 class="my-5 text-center text-uppercase">Usuario</h3>
+            <form th:action="@{/usuarios/guardar}" method="post"class="container" th:object="${usuario}">
                 <!-- Fila 1 -->
+                <div class="row">
+                    <input type="hidden" th:field="*{id}">
+                </div>
                 <div class="row">
                     <!-- columna 1 -->
                     <div class="col-12 col-md-6 my-3 ">
                         <label>Rol</label>
-                        <input type="text" required class="form-control">
+                        <select name="rol" id="rol" th:field="*{rol}" class="form-control">
+                            <option value="" disabled selected >----Selecciona un rol------</option>
+                            <option value="veterinario">Veterinario</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="recepcionista">Recepcionista</option>
+                        </select>
                     </div>
                     <!-- Columna 2 -->
                     <div class="col-12 col-md-6 my-3 ">
-                        <label for="">Estatus</label>
-                        <input type="text" required class="form-control">
+                        <label for="estatus">Empleado</label>
+                        <select name="empleado" id="empleado" required class="form-control">
+                            <option value="" disabled selected>----Seleccionar Empleado----</option>
+                            <option th:each="empleado : ${empleados}" th:value="${empleado.id}" th:text="${empleado.correoElectronico}"></option>
+                        </select>
                     </div>
                     <br>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 my-3">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="text" class="form-control" name="contrasenia" id="contrasenia" th:field="*{contrasenia}">
+                    </div>
                 </div>
                 <!-- Fin row -->
                 <div class="row">
                     <!-- Columna 1 -->
-                    <div class="col-md-3 col-lg-2 my-3">
-                        <input type="submit" value="aceptar" id="aceptar" class=" btn btn-success form-control">
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <input type="submit" value="aceptar" id="aceptar" class="form-control btn btn-success text-uppercase">
                     </div>
-                    <div class=" col-md-3 col-lg-2 my-3">
-                        <button id="cancelar" class=" btn btn-danger form-control">Cancelar</button>
+                    <div class="col-12 col-md-6 my-32 col-md-3 col-lg-2 my-3">
+                        <a th:onclick="|window.location='@{/usuarios/}'|" id="cancelar" class="form-control btn btn-danger text-uppercase">Cancelar</a>
                     </div>
-                </div>
+                </div>>
             </form>
         </div>
     </div>

@@ -15,22 +15,22 @@ public class Servicio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "nombre_servicio")
-    private String nombreSerivicio;
+    private String nombre;
     private String descripcion;
     @Column(name = "costo_servicio")
     private double costoServicio;
-    private String imagen;
+    private String imagen = "empleado.jpg";
     public int getId() {
         return id;
     }
     public void setId(int id) {
         this.id = id;
     }
-    public String getNombreSerivicio() {
-        return nombreSerivicio;
+    public String getNombre() {
+        return nombre;
     }
-    public void setNombreSerivicio(String nombreSerivicio) {
-        this.nombreSerivicio = nombreSerivicio;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     public String getDescripcion() {
         return descripcion;
@@ -38,23 +38,22 @@ public class Servicio {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    public String getImagen() {
-        return imagen;
-    }
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
     public double getCostoServicio() {
         return costoServicio;
     }
     public void setCostoServicio(double costoServicio) {
         this.costoServicio = costoServicio;
     }
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     @Override
     public String toString() {
-        return "Servicio [id=" + id + ", nombreSerivicio=" + nombreSerivicio + ", descripcion=" + descripcion
-                + ", costoServicio=" + costoServicio + ", imagen=" + imagen + "]";
+        return "Servicio [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", costoServicio="
+                + costoServicio + ", imagen=" + imagen + "]";
     }
     
 }

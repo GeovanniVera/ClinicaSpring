@@ -30,8 +30,8 @@
             </thead>
             <tbody>
                 <tr th:each="tratamiento : ${tratamientos}">
-                    <td th:text="${tratamiento.id}">001</td>
-                    <td th:text="${tratamiento.nombre}">Emulcion</td>
+                    <td th:text="${tratamiento.id}"></td>
+                    <td th:text="${tratamiento.nombre}"></td>
                     <td th:text="${tratamiento.descripcion}"></td>
                     <td th:text="${tratamiento.diasDuracion + ' ' + 'Dias'}"></td>
                     <td><a th:href="@{/tratamientos/actualizar(id=${tratamiento.id})}"><i

@@ -23,7 +23,7 @@
                     <th>Nombre</th>
                     <th>Tipo</th>
                     <th>Descripcion</th>
-                    <th colspan="2">Operaciones</th>
+                    <th>Operaciones</th>
                 </tr>
                 <tr th:if="${insumos.size() == 0}">
                     <td colspan="10">No hay clientes registradas.</td>
@@ -36,7 +36,6 @@
                     <td th:text="${insumo.descripcion}"></td>
                     <td th:text="${insumo.tipo}"></td>
                     <td><a th:href="@{/insumos/actualizar(id=${insumo.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><a th:href="@{/insumos/eliminar(id=${insumo.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>  
             </tbody>              
         </table>
@@ -63,10 +62,6 @@
                 <div class="columna">
                     <div class="col-header">editar</div>
                     <div class="col-contenido"><a th:href="@{/insumos/actualizar(id=${insumo.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
-                </div>
-                <div class="columna">
-                    <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><a th:href="@{/insumos/eliminar(id=${insumo.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
             </div>
             <!-- Fin de la fila mobile -->

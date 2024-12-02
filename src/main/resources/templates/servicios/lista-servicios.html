@@ -68,12 +68,11 @@
                 </div>
                 <div class="columna">
                     <div class="col-header">editar</div>
-                    <div class="col-contenido"><a href="form-servicio.html"><i
-                                class="fa-solid fa-pencil pencil"></i></a></div>
+                    <div class="col-contenido"><a th:href="@{/servicios/actualizar(id=${servicio.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
                 </div>
                 <div class="columna">
                     <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><i class="fa-solid fa-trash trash"></i></div>
+                    <div class="col-contenido"><a th:href="@{/servicios/eliminar(id=${servicio.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
                 <div class="fila" th:if="${servicios.size() == 0}">
                     <div class="col-header">

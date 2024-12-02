@@ -21,7 +21,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th colspan="2">Operaciones</th>
+                    <th>Operaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +29,6 @@
                     <td th:text="${fabricante.id}"></td>
                     <td th:text="${fabricante.nombre}"></td>
                     <td><a th:href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></td>
-                    <td><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"><i class="fa-solid fa-trash trash"></i></a></td>
                 </tr>
                 <tr th:if="${fabricantes.size() == 0}">
                     <td colspan="12">No hay fabricantes registradas.</td>
@@ -50,10 +49,6 @@
                 <div class="columna">
                     <div class="col-header">editar</div>
                     <div class="col-contenido"><a th:href="@{/fabricantes/actualizar(id=${fabricante.id})}"><i class="fa-solid fa-pencil pencil"></i></a></div>
-                </div>
-                <div class="columna">
-                    <div class="col-header">Eliminar</div>
-                    <div class="col-contenido"><a th:href="@{/fabricantes/eliminar(id=${fabricante.id})}"><i class="fa-solid fa-trash trash"></i></a></div>
                 </div>
             </div>
             <div class="fila" th:if="${fabricantes.size() == 0}">

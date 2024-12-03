@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:insert="~{fragmentos/head::head}">
+    <!--Head fragment-->
+</head>
+<body>
+    <!-- Menu -->
+    <div class="" th:insert="~{fragmentos/menu::menu-principal}">
+        <!-- Fragmento de menu -->
+     </div>
+    <!-- header -->
+    <header class="header_lista" th:insert="~{fragmentos/header-principal::header-principal}">
+        <!-- fragmento de header-->
+    </header>
+    <!-- Contenido container Usuario -->
+    <div class="container my-5">
+        <div class="container my-5 card" th:object="${historialClinico}">
+            <h3 class="text-uppercase my-5">Historial Clinico</h3>
+            <img th:src="@{/img/perro.jpg}" width="300px" height="300px" alt="Foto de la mascota">
+            <br><p th:text="${'Nombre de la mascota: ' + historialClinico.mascota.nombre}"></p>
+            <br><p th:text="${'Raza: ' + historialClinico.mascota.raza}"></p>
+            <br><p th:text="${'Talla: ' + historialClinico.mascota.talla}"></p>
+            <br><p th:text="${'Peso: ' + historialClinico.mascota.peso}"></p>
+            <br><p th:text="${'Dueño de la mascota: ' + historialClinico.mascota.cliente.nombre}"></p>
+            <br><p th:text="${'Correo electronico del dueño: ' + historialClinico.mascota.cliente.correoElectronico}"></p>
+                  
+        </div>
+    </div>
+    <script th:src="@{/js/menu.js}"></script>
+</body>
+</html>
